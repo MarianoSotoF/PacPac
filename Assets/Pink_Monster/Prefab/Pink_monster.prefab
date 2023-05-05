@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afabe09abff22114ca5bba1ae451f07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PathPoints:
+  - {fileID: 8936741687905067716, guid: 77141fd98f0ba3c449b096eb26cacf44, type: 3}
 --- !u!195 &-766530747072145273
 NavMeshAgent:
   m_ObjectHideFlags: 0
