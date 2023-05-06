@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 8936741687905067716}
   - component: {fileID: 8936741687905067719}
   - component: {fileID: 8936741687905067718}
+  - component: {fileID: 6064197319122550655}
   m_Layer: 0
   m_Name: Light
   m_TagString: Light
@@ -178,3 +179,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &6064197319122550655
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936741687905067712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}

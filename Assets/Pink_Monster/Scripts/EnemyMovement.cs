@@ -47,10 +47,9 @@ public class EnemyMovement : MonoBehaviour
     //Control wandering process on the monster
     void Wandering(){
         if(HasBeenInSight){
-            Debug.Log("TE VEO");
+            //Debug.Log("TE VEO");
             timer+=Time.deltaTime;
             pathfinder.SetDestination(Player.position);
-            Debug.Log(timer);
             HasBeenInSight=timer<=5;
         }
         else{
@@ -58,9 +57,9 @@ public class EnemyMovement : MonoBehaviour
             if(EsVisible())
                 pathfinder.SetDestination(Player.position);
             else{
-                Debug.Log("HACIA UN PUNTO");
+                //Debug.Log("HACIA UN PUNTO");
                 if (!pathfinder.pathPending && pathfinder.remainingDistance < 0.5f){
-                        Debug.Log("HACIA OTRO PUNTO");
+                        //Debug.Log("HACIA OTRO PUNTO");
                         GotoPoint();
                 }
             } 

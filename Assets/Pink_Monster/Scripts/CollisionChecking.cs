@@ -6,12 +6,11 @@ public class CollisionChecking : MonoBehaviour
 {
     private int darkness = 0;
 
-    void OnCollisionEnter(Collision other){
+    void OnTriggerExit(Collider other) {
         if(other.transform.tag == "Light"){
             darkness++;
-            Debug.Log("IN"+darkness);
+            //Debug.Log(darkness);
             Destroy(other.gameObject);
         }
-        Debug.Log("OUT" + other.gameObject.name);
     }
 }
