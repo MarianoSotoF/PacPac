@@ -42,6 +42,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        private float Stamina_ = 100.0f;
+        private float minStamina_ = 0.01f;
+        private bool penalty = false;
+
         // Use this for initialization
         private void Start()
         {
@@ -147,8 +151,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
                              Time.fixedDeltaTime;
+                //Stamina consumption
+                if(!m_IsWalking && Stamina_ > minStamina_ && !penalty){Stamina_=Stamina_*0.95f;} 
             }
-
+            //Stamina recovery
+            if((m_IsWalking || Stamina_ <= minStamina_ || penalty) && Stamina_ < 100.0f){Stamina_=Stamina_*1.0025f;} 
+            Debug.Log(Stamina_);
             if (!(m_StepCycle > m_NextStep))
             {
                 return;
@@ -215,7 +223,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            // If there isn't enought stamina to run the player gets a penalty (just once) and won't run until it recovers 
+            if(Stamina_ <= minStamina_ || penalty){
+                //Give punishment for using all stamina (just once)
+                if(!penalty){penalty = true; Stamina_=Stamina_*0.75f;}
+                //Forbid running until fully recover
+                if(Stamina_ >= 100){penalty = false;}
+                //Exhausted when stamina is bellow its minumun => 80% of walking speed
+                if(Stamina_ <= minStamina_){speed = m_WalkSpeed*0.8f;}
+                else{speed = m_WalkSpeed;}
+            }
+            else{speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;}
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
