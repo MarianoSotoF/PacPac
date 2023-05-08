@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -43,8 +44,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         private float Stamina_ = 100.0f;
-        private float minStamina_ = 0.01f;
+        private float minStamina_ = 0.1f;
         private bool penalty = false;
+
+        public PostProcessVolume postPros;
 
         // Use this for initialization
         private void Start()
@@ -147,16 +150,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void ProgressStepCycle(float speed)
         {
+            Vignette vignette;
+            postPros.profile.TryGetSettings(out vignette);
+            float nextVg = 0f;
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
                              Time.fixedDeltaTime;
                 //Stamina consumption
-                if(!m_IsWalking && Stamina_ > minStamina_ && !penalty){Stamina_=Stamina_*0.95f;} 
+                if(!m_IsWalking && Stamina_ > minStamina_ && !penalty){Stamina_=Stamina_*0.975f;}
             }
             //Stamina recovery
-            if((m_IsWalking || Stamina_ <= minStamina_ || penalty) && Stamina_ < 100.0f){Stamina_=Stamina_*1.0025f;} 
-            Debug.Log(Stamina_);
+            if((m_IsWalking || Stamina_ <= minStamina_ || penalty) && Stamina_ < 100.0f){Stamina_=Stamina_*1.005f;} 
+
+            //Update visual Stamina visual effect
+            nextVg = 0.4f + 0.35f*(100-Stamina_)/100;
+            if(nextVg > 0.75f){vignette.intensity.value = 0.75f;}
+            else if(nextVg < 0.4f){vignette.intensity.value = 0.4f;}
+            else {vignette.intensity.value = 0.4f + 0.35f*(100-Stamina_)/100;}
+
+            Debug.Log("Stamina: " + Stamina_ + " | Vg: " + vignette.intensity.value);
             if (!(m_StepCycle > m_NextStep))
             {
                 return;
