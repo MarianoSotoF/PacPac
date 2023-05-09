@@ -169,7 +169,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if(nextVg < 0.4f){vignette.intensity.value = 0.4f;}
             else {vignette.intensity.value = 0.4f + 0.35f*(100-Stamina_)/100;}
 
-            Debug.Log("Stamina: " + Stamina_ + " | Vg: " + vignette.intensity.value);
+            //Debug.Log("Stamina: " + Stamina_ + " | Vg: " + vignette.intensity.value);
             if (!(m_StepCycle > m_NextStep))
             {
                 return;

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Light
+  - Pink_monster
+  - DeathRestartButton
+  - DeathReturnButton
   layers:
   - Default
   - TransparentFX
