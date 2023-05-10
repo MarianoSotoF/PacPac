@@ -13,10 +13,10 @@ public class DeathScreen_functions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string[] DeathMessages = new string[]{"No pierdas tu luz... está oscuro...", 
-                                              "Es rapido... no apartes la mirada...",
-                                              "Siempre mira al frente... pero vigila las alturas",
-                                              "Es pequeño... evita que te vea..."};
+        string[] DeathMessages = new string[]{"Keep your light save... IT's dark...",
+                                              "It's fast... don't look away", 
+                                              "Don't look back... but keep an eye on heights.",
+                                              "It's small... get hid."};
 
         //Get death text and randomly select message to show
         DeathText = this.transform.GetChild(1).GetComponent<Text>();

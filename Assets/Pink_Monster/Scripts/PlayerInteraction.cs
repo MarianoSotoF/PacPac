@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public GameObject darknessChart;
+    public CollisionChecking CollisionsCheck;
+
     // Update is called once per frame
     void Update()
     {
+        //Raycasting
         InteractRaycast();
+        //Show/ Hide Darkness Chart
+        if (Input.GetKeyDown(KeyCode.M)){
+            darknessChart.SetActive(!darknessChart.activeSelf);
+        }
     }
 
     void InteractRaycast()
