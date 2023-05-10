@@ -9,6 +9,10 @@ TagManager:
   - Pink_monster
   - DeathRestartButton
   - DeathReturnButton
+  - Red_monster
+  - DarknessChart
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX
