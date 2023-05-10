@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public ItemList items;
+    bool DoorKey;
     // Update is called once per frame
     void Update()
     {
@@ -17,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
 
         Ray interactionRay = new Ray(playerPosition, forwardDirection);
         RaycastHit interactionRayHit;
-        float interactionRayLength = 30.0f;
+        float interactionRayLength = 5.0f;
 
         Vector3 interactionRayEndpoint = forwardDirection * interactionRayLength + playerPosition;
         Debug.DrawLine(playerPosition, interactionRayEndpoint);
@@ -31,6 +33,15 @@ public class PlayerInteraction : MonoBehaviour
             if(hitGameObject.CompareTag("Pink_monster")){
                 hitGameObject.SendMessage("BeenSeen", SendMessageOptions.DontRequireReceiver);
             }
+            if(hitGameObject.CompareTag("Key")){
+                // Debug.Log("ES UNA LLAVE");
+                // items.Keys++;
+                // Destroy(hitGameObject);
+                // Debug.Log("TENGO LA LLAVE");
+            }
+
+            
         }
     }
+    
 }
