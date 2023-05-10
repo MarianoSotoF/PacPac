@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5554970839315985611}
   - component: {fileID: 5902456245170459929}
   - component: {fileID: 5155619398847408081}
-  - component: {fileID: 1006947722585401893}
   - component: {fileID: -766530747072145273}
   - component: {fileID: 666724774062230242}
+  - component: {fileID: -7293808051313770426}
   m_Layer: 0
-  m_Name: Pink_monster
+  m_Name: Pink_monster_PlaceHolder
   m_TagString: Pink_monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,20 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1006947722585401893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912809117609495895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afabe09abff22114ca5bba1ae451f07c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PathPoints:
-  - {fileID: 8936741687905067716, guid: 77141fd98f0ba3c449b096eb26cacf44, type: 3}
 --- !u!195 &-766530747072145273
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -149,3 +135,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 1
+--- !u!114 &-7293808051313770426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912809117609495895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726dbcc278a41e94b88fab062d34a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PathPoints: []

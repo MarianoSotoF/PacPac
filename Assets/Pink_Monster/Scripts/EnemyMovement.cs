@@ -5,20 +5,20 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Transform Player;
-    private UnityEngine.AI.NavMeshAgent pathfinder;
-    private float timer=0;
-    private int destPoint=0;
-    private bool HasBeenInSight=false;
+    protected Transform Player;
+    protected UnityEngine.AI.NavMeshAgent pathfinder;
+    protected float timer=0;
+    protected int destPoint=0;
+    protected bool HasBeenInSight=false;
     public Transform[] PathPoints;
 
     //Indicates if the player is or isn't visible
-    bool EsVisible(){
+    protected bool EsVisible(){
         return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=15;
     }
 
     //Set the new target point to go to for the monster
-    void GotoPoint(){
+    protected void GotoPoint(){
         // Returns if no points have been set up
         if (PathPoints.Length == 0)
             return;
@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -38,14 +38,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
-        if(GetComponent<EnemySeen>().Active){
-            Wandering();
-        }
-        else{pathfinder.SetDestination(transform.position);}
+        Wandering();
     }
 
     //Control wandering process on the monster
-    void Wandering(){
+    protected void Wandering(){
         if(HasBeenInSight){
             //Debug.Log("TE VEO");
             timer+=Time.deltaTime;
