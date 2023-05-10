@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CollisionChecking : MonoBehaviour
 {
-    private int darkness = 0;
+    public int darkness = 0;
     public GameObject DeathScreen;
 
     void OnTriggerExit(Collider other) {
@@ -18,6 +18,10 @@ public class CollisionChecking : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.transform.tag == "Pink_monster"){
+            //Debug.Log("Te moristeh");
+            StartCoroutine(showDeathScreen());
+        }
+        if(other.transform.tag == "Red_monster"){
             //Debug.Log("Te moristeh");
             StartCoroutine(showDeathScreen());
         }

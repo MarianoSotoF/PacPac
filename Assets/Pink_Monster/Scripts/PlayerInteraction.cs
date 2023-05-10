@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject darknessChart;
-    public CollisionChecking CollisionsCheck;
+    public Sprite[] darknessChartLevels;
+
+    private int MaxLights = 0;
+
+    void Start() {
+        MaxLights = GameObject.FindGameObjectsWithTag("Light").Length;
+    }
 
     // Update is called once per frame
     void Update()
@@ -15,8 +21,19 @@ public class PlayerInteraction : MonoBehaviour
         InteractRaycast();
         //Show/ Hide Darkness Chart
         if (Input.GetKeyDown(KeyCode.M)){
+            UpdateDarknessChart();
             darknessChart.SetActive(!darknessChart.activeSelf);
         }
+    }
+
+    void FixedUpdate() {
+        if(darknessChart.activeSelf){UpdateDarknessChart();}
+    }
+
+    void UpdateDarknessChart(){
+        int darkness = transform.parent.GetComponent<CollisionChecking>().darkness;
+        int darknessLevel = (int)Mathf.Floor(((float)darkness/MaxLights)*(darknessChartLevels.Length-1));
+        darknessChart.transform.GetChild(0).GetComponent<Image>().sprite = darknessChartLevels[darknessLevel];
     }
 
     void InteractRaycast()

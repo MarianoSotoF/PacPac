@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5788882159554934521}
   - component: {fileID: 5788882159554934520}
   - component: {fileID: 5788882159554934523}
-  - component: {fileID: 5788882159554934525}
   - component: {fileID: 5788882159554934471}
   - component: {fileID: 5788882159554934468}
+  - component: {fileID: 1608862403613820428}
   m_Layer: 0
   m_Name: Red_monster
   m_TagString: Red_monster
@@ -95,23 +95,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5788882159554934524}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5788882159554934525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5788882159554934524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4890c9b1887dfa941a5ae8b1e96aadd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: -4.5, z: 0}
 --- !u!195 &5788882159554934471
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -150,3 +138,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1608862403613820428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788882159554934524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afabe09abff22114ca5bba1ae451f07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PathPoints: []
