@@ -19,16 +19,19 @@ public class CollisionChecking : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.transform.tag == "Pink_monster"){
             //Debug.Log("Te moristeh");
+            other.gameObject.SetActive(false);
             StartCoroutine(showDeathScreen());
         }
         if(other.transform.tag == "Red_monster"){
             //Debug.Log("Te moristeh");
+            other.gameObject.SetActive(false);
             StartCoroutine(showDeathScreen());
         }
     }
 
     IEnumerator showDeathScreen(){
         yield return new WaitForSeconds(3.0f);
+
         DeathScreen.SetActive(true);
     }
 }

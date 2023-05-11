@@ -34,6 +34,6 @@ public class DeathScreen_functions : MonoBehaviour
     }
 
     void ReturnToMenu(){
-        //Por implementar
+        SceneManager.LoadScene("Main_Menu");
     }
 }
