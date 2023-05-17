@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Enemies/Blue/Blue_Monster_Mecanic.cs.meta
 guid: c13b8c5eac2df87418bbe1c493b33cae
+========
+guid: 6fb761a492f57d84586a8264df7b3cc0
+>>>>>>>> Menu:Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/Physics2DRaycasterTests.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
