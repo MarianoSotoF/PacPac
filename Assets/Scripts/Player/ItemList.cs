@@ -32,7 +32,7 @@ public class ItemList : MonoBehaviour
         
         if(other.gameObject.CompareTag("Key")){
             //Debug.Log("Choca con LLAVE");
-            textoItem.text="E " + other.gameObject.tag;
+            textoItem.text="Press 'E' to pick up " + other.gameObject.tag;
             if(Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("ES UNA LLAVE");
                 Keys++;
@@ -42,14 +42,14 @@ public class ItemList : MonoBehaviour
             }
         }
          if(other.gameObject.CompareTag("Door")){
-            textoItem.text="E Open "+other.gameObject.tag;
+            textoItem.text="Press 'E' to Open "+other.gameObject.tag;
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("OPEN DOOR");
             Keys--;
             Destroy(other.gameObject);
             textoItem.text="";}
             else if(Keys<=0)
-            textoItem.text="You dont have any key";
+            textoItem.text="You don't have any key";
         }
     }
     void OnTriggerExit(Collider other) {
