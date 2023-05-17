@@ -13,6 +13,7 @@ TagManager:
   - DarknessChart
   - Door
   - Key
+  - breakableWall
   layers:
   - Default
   - TransparentFX
