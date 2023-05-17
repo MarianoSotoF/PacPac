@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
+    public Text textoItem; 
 
     private int MaxLights = 0;
 
@@ -56,6 +57,16 @@ public class PlayerInteraction : MonoBehaviour
             // Interaction with Pink_monster
             if(hitGameObject.CompareTag("Pink_monster")){
                 hitGameObject.SendMessage("BeenSeen", SendMessageOptions.DontRequireReceiver);
+            }
+
+            // Change action text to black when looking at a door
+            if(hitGameObject.CompareTag("Door")){
+                textoItem.color = Color.black;
+            }
+            
+            // Change action text to white by default
+            if(!hitGameObject.CompareTag("Door")){
+                textoItem.color = Color.white;
             }
         }
     }

@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 2708620854985896055}
   - component: {fileID: 2708620854985896054}
   m_Layer: 0
-  m_Name: Monstruo_1
+  m_Name: Pink_monster
   m_TagString: Pink_monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

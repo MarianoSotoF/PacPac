@@ -8,17 +8,15 @@ public class ItemList : MonoBehaviour
     public Text textoItem; 
     bool OnItem=false;
     public int Keys=0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        linterna.GetComponent<Light>().intensity*=0.999f;
-        
+        if(linterna.GetComponent<Light>().intensity*0.9995f >= 1.5f){
+            linterna.GetComponent<Light>().intensity*=0.9995f;
+        }else{
+            linterna.GetComponent<Light>().intensity = 1.5f;
+        }
     }
     
     // void OnTriggerEnter(Collider other) {
@@ -29,21 +27,24 @@ public class ItemList : MonoBehaviour
     //         Destroy(other.gameObject);
     //     }
     // }
+
     void OnTriggerStay(Collider other) {
         
         if(other.gameObject.CompareTag("Key")){
-            textoItem.text="E "+other.gameObject.tag;
+            //Debug.Log("Choca con LLAVE");
+            textoItem.text="E " + other.gameObject.tag;
             if(Input.GetKeyDown(KeyCode.E)){
-            Debug.Log("ES UNA LLAVE");
+            // Debug.Log("ES UNA LLAVE");
                 Keys++;
                 Destroy(other.gameObject);
                 textoItem.text="";
-                Debug.Log("TENGO LA LLAVE");}
+                // Debug.Log("TENGO LA LLAVE");
+            }
         }
          if(other.gameObject.CompareTag("Door")){
             textoItem.text="E Open "+other.gameObject.tag;
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
-            Debug.Log("OPEN DOOR");
+            // Debug.Log("OPEN DOOR");
             Keys--;
             Destroy(other.gameObject);
             textoItem.text="";}
@@ -53,5 +54,13 @@ public class ItemList : MonoBehaviour
     }
     void OnTriggerExit(Collider other) {
         textoItem.text="";
+
+        if(other.transform.tag == "Light"){
+            if(linterna.GetComponent<Light>().intensity*1.2f <= 7){
+                linterna.GetComponent<Light>().intensity*=1.2f;
+            }else{
+                linterna.GetComponent<Light>().intensity = 7;
+            }
+        }
     }
 }
