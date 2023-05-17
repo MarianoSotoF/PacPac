@@ -22,6 +22,19 @@ public class Menu : MonoBehaviour
     public GameObject Options;
     public GameObject Play_Panel;
 
+    private void Start(){
+
+        // Cambiar el estado del cursor
+        if(Cursor.visible == false){
+
+            Cursor.visible = !Cursor.visible;
+            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+            
+            Time.timeScale = 1f;
+        }
+        
+        
+    }
 
     private void awake()
     {
