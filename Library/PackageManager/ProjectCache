@@ -13,7 +13,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
       ticks: 638186436461912470
+=======
+      ticks: 638200497115451839
+>>>>>>> Stashed changes
     m_Hash: 3383191594
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -536,8 +540,10 @@ m_ResolvedPackages:
     - 3.2.0
     - 3.2.1
     - 3.2.2
+    - 3.3.0
     compatible:
     - 3.2.2
+    - 3.3.0
     verified: 3.2.2
   dependencies:
   - name: com.unity.modules.physics
