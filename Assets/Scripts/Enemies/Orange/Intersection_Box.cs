@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Intersection_Box : MonoBehaviour {
     public GameObject monstruo;
 
-    private void OnTriggerEnter(Collider o) {
+    public void OnTriggerEnter(Collider o) {
         if(o.tag == "Player") {
-            monstruo.GetComponent<Orange_EnemyMovement>().MarcarJugador(true);
+            Console.WriteLine("hola");
+            monstruo.GetComponent<Orange_EnemyMovement>().PlayerInSight = true;
         }
     }
 
-    private void OnTriggerExit(Collider o) {
+    public void OnTriggerExit(Collider o) {
         if(o.tag == "Player") {
-            monstruo.GetComponent<Orange_EnemyMovement>().MarcarJugador(false);
+            Console.WriteLine("bye");
+            monstruo.GetComponent<Orange_EnemyMovement>().PlayerInSight = false;
         }
     }
 }
