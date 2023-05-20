@@ -37,6 +37,7 @@ public class Red_Screamer : MonoBehaviour
             TotalRotation += rotationValue;
             POV.transform.Rotate(-rotationValue, 0, 0, Space.Self);
             Light.transform.Rotate(-rotationValue, 0, 0, Space.Self);
+            if(POV.transform.eulerAngles.y >= 90.0f){}
         }
         else{
             enemy.transform.position += new Vector3(0,-speed,0);
