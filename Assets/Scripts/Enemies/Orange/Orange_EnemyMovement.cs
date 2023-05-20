@@ -9,25 +9,20 @@ public class Orange_EnemyMovement : MonoBehaviour {
     private Transform player;
     private NavMeshAgent pathfinder;
 
+    public bool PlayerInSight {
+        get { return playerInSight; }
+        set { playerInSight = value; }
+    }
+
     void Start() {
         origin = transform.position;
-        playerInSight = true;
+        playerInSight = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-    public void MarcarJugador(bool cond) {
-        playerInSight = cond;
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Wandering();
-    }
-
-    //Control wandering process on the monster
-    protected void Wandering(){
         if(playerInSight)
             pathfinder.SetDestination(player.position);
         else {
