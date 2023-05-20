@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    private float timeLeft = 0;
-    public float timeDeltaSeconds = 3.0f;
+    private bool opening = false;
+    private GameObject pivot;
+    private Collider[] col;
+    public bool opened = false;
 
-    public void Update() {
-        if(timeLeft > 0) {
-            float time = Time.deltaTime;
-            transform.position -= Vector3.up * ((182.62f * time / (timeDeltaSeconds * 2f)));
-            timeLeft -= time;
+    private void Start() {
+        pivot = transform.parent.gameObject;
+        col = GetComponents<Collider>();
+    }
+
+    private void FixedUpdate() {
+        if(opening) {
+            pivot.transform.Rotate(0,-3,0);
+            Debug.Log(pivot.transform.eulerAngles.y);
+            if(pivot.transform.eulerAngles.y < 253){opening = false; col[1].isTrigger = false;}
         }
     }
 
     public void CloseDoor() {
-        StartCoroutine(CloseDoorI());
-    }
-
-    public IEnumerator CloseDoorI() {
-        timeLeft = timeDeltaSeconds;
-        yield return new WaitForSeconds(timeDeltaSeconds);
-        Destroy(gameObject);
+        opening = true;
+        col[1].isTrigger = true;
+        opened = true;
     }
 }

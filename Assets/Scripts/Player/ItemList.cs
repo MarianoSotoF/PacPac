@@ -41,7 +41,7 @@ public class ItemList : MonoBehaviour
                 // Debug.Log("TENGO LA LLAVE");
             }
         }
-         if(other.gameObject.CompareTag("Door")){
+         if(other.gameObject.CompareTag("Door") && other.gameObject.transform.GetComponent<OpenDoor>().opened == false){
             textoItem.text="Press 'E' to Open "+other.gameObject.tag;
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("OPEN DOOR");
