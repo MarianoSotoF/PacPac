@@ -46,7 +46,7 @@ public class ItemList : MonoBehaviour
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("OPEN DOOR");
             Keys--;
-            Destroy(other.gameObject);
+            other.gameObject.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
             textoItem.text="";}
             else if(Keys<=0)
             textoItem.text="You don't have any key";
