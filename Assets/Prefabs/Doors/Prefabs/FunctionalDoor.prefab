@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3964343511640190303}
   - component: {fileID: 3964343510502375599}
   - component: {fileID: 3964343510502375568}
+  - component: {fileID: -5276616522263485409}
   m_Layer: 0
   m_Name: FunctionalDoor
   m_TagString: Door
@@ -111,3 +112,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.886515, y: 0.90888524, z: 10.540384}
   m_Center: {x: -2.9432237, y: -0.40540752, z: 5.270192}
+--- !u!114 &-5276616522263485409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964343511638258591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510d3e1a9561d8565923397d68487fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDeltaSeconds: 3
