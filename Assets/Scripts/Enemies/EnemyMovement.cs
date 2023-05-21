@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     protected Transform Player;
-    protected UnityEngine.AI.NavMeshAgent pathfinder;
+    public UnityEngine.AI.NavMeshAgent pathfinder;
     protected float timer=0;
     protected int destPoint=0;
     protected bool HasBeenInSight=false;
