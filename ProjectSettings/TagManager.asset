@@ -15,6 +15,9 @@ TagManager:
   - Key
   - breakableWall
   - Orange_Monster
+  - B_Monster_Trigger
+  - Light2
+  - Exit
   layers:
   - Default
   - TransparentFX

@@ -11,11 +11,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private int MaxLights = 0;
     private int darkness;
-    private GameObject breakableWall;
 
     void Start() {
         MaxLights = GameObject.FindGameObjectsWithTag("Light").Length;
-        breakableWall = GameObject.FindGameObjectWithTag("breakableWall");
     }
 
     // Update is called once per frame
@@ -33,9 +31,6 @@ public class PlayerInteraction : MonoBehaviour
     void FixedUpdate() {
         darkness = transform.parent.GetComponent<CollisionChecking>().darkness;
         if(darknessChart.activeSelf){UpdateDarknessChart();}
-        if(darkness == MaxLights){
-            Destroy(breakableWall);
-        }
     }
 
     void UpdateDarknessChart(){
