@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
-    public Text textoItem; 
+    public Text textoItem;
 
     private int MaxLights = 0;
     private int darkness;
@@ -56,7 +56,7 @@ public class PlayerInteraction : MonoBehaviour
         Debug.DrawLine(playerPosition, interactionRayEndpoint);
 
         bool hitFound = Physics.Raycast(interactionRay, out interactionRayHit, interactionRayLength);
-        
+
         if(hitFound){
             GameObject hitGameObject = interactionRayHit.transform.gameObject;
 
@@ -69,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
             if(hitGameObject.CompareTag("Door")){
                 textoItem.color = Color.black;
             }
-            
+
             // Change action text to white by default
             if(!hitGameObject.CompareTag("Door")){
                 textoItem.color = Color.white;

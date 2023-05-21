@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemList : MonoBehaviour
 {
     public GameObject linterna;
-    public Text textoItem; 
+    public Text textoItem;
     bool OnItem=false;
     public int Keys=0;
 
@@ -18,7 +18,7 @@ public class ItemList : MonoBehaviour
             linterna.GetComponent<Light>().intensity = 1.5f;
         }
     }
-    
+
     // void OnTriggerEnter(Collider other) {
     //     Debug.Log("CHOQUE");
     //     if(Keys>0 && other.gameObject.CompareTag("Door")){
@@ -29,7 +29,7 @@ public class ItemList : MonoBehaviour
     // }
 
     void OnTriggerStay(Collider other) {
-        
+
         if(other.gameObject.CompareTag("Key")){
             //Debug.Log("Choca con LLAVE");
             textoItem.text="Press 'E' to pick up " + other.gameObject.tag;
