@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -9,14 +10,23 @@ public class ItemList : MonoBehaviour
     bool OnItem=false;
     public int Keys=0;
 
+    public float lanternMax = 7.0f;
+    public float lanternMin = 1.5f;
+    public float lanternDecrTime = 30.0f;
+    public float lanternNLightsToFill = 10.0f;
+    private float lanternDecr;
+    private float lanternIncr;
+
+    void Start() {
+        lanternDecr = (lanternMax - lanternMin) / lanternDecrTime;
+        lanternIncr = (lanternMax - lanternMin) / lanternNLightsToFill;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(linterna.GetComponent<Light>().intensity*0.9995f >= 1.5f){
-            linterna.GetComponent<Light>().intensity*=0.9995f;
-        }else{
-            linterna.GetComponent<Light>().intensity = 1.5f;
-        }
+        Light l = linterna.GetComponent<Light>();
+        l.intensity = Math.Max(lanternMin, l.intensity - lanternDecr * Time.deltaTime);
     }
 
     // void OnTriggerEnter(Collider other) {
@@ -56,11 +66,8 @@ public class ItemList : MonoBehaviour
         textoItem.text="";
 
         if(other.transform.tag == "Light"){
-            if(linterna.GetComponent<Light>().intensity*1.2f <= 7){
-                linterna.GetComponent<Light>().intensity*=1.2f;
-            }else{
-                linterna.GetComponent<Light>().intensity = 7;
-            }
+            Light l = linterna.GetComponent<Light>();
+            l.intensity = Math.Min(lanternMax, l.intensity + lanternIncr);
         }
     }
 }

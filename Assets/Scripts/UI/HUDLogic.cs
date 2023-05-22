@@ -11,6 +11,7 @@ public class HUDLogic : MonoBehaviour
     public GameObject player;
     private GameObject linterna;
     private FirstPersonController speedController;
+    private ItemList itemList;
 
     public Color staminaUnpunished; 
     public Color staminaPunished; 
@@ -21,6 +22,7 @@ public class HUDLogic : MonoBehaviour
 
         linterna = player.transform.GetChild(0).GetChild(0).gameObject;
         speedController = player.GetComponent<FirstPersonController>();
+        itemList = player.GetComponent<ItemList>();
     }
 
     private void ChangeGauge(Transform target, float prop) {
@@ -28,7 +30,7 @@ public class HUDLogic : MonoBehaviour
     }
 
     void Update() {
-        float intensity = (linterna.GetComponent<Light>().intensity - 1.5f) / 5.5f;
+        float intensity = (linterna.GetComponent<Light>().intensity - itemList.lanternMin) / (itemList.lanternMax - itemList.lanternMin);
         ChangeGauge(battery, intensity);
 
         float sprintSpeed = speedController.Stamina_ / 100f;

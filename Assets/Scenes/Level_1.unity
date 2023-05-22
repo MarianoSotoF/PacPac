@@ -4039,8 +4039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1115705066}
-  staminaPunished: {r: 0.78431374, g: 0.078431375, b: 0.078431375, a: 1}
   staminaUnpunished: {r: 0.15312389, g: 0.8773585, b: 0.16175778, a: 1}
+  staminaPunished: {r: 0.78431374, g: 0.078431375, b: 0.078431375, a: 1}
 --- !u!1001 &240782744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18021,15 +18021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: timeLoseStamina
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: timeRecoveryStamina
-      value: 4
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: unpenalityThreshold
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054730646848, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: volumeTrigger
