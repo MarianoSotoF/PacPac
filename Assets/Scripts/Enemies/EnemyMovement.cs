@@ -14,9 +14,12 @@ public class EnemyMovement : MonoBehaviour
     protected bool HasBeenInSight=false;
     public Transform[] PathPoints;
 
-    public AudioSource Red_Monster_;
-    public AudioClip red;
-    public AudioClip horror;
+    public AudioSource Monster_;
+    public AudioClip monster_cry;
+
+    public GameObject global;
+
+    private bool changeMusicStatus = false;
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
@@ -50,8 +53,6 @@ public class EnemyMovement : MonoBehaviour
     //Control wandering process on the monster
     protected void Wandering(){
         if(HasBeenInSight){
-            Red_Monster_.PlayOneShot(red);
-            Red_Monster_.PlayOneShot(horror);
             //Debug.Log("TE VEO");
             timer+=Time.deltaTime;
             pathfinder.SetDestination(Player.position);
@@ -59,10 +60,14 @@ public class EnemyMovement : MonoBehaviour
         }
         else{
             timer=0;
-            if(EsVisible())
+            if(EsVisible()){
+                Monster_.PlayOneShot(monster_cry);
+                if(!changeMusicStatus){global.SendMessage("PlayMusic", true, SendMessageOptions.DontRequireReceiver); changeMusicStatus = true;}
                 pathfinder.SetDestination(Player.position);
+            }
             else{
                 //Debug.Log("HACIA UN PUNTO");
+                if(changeMusicStatus){global.SendMessage("PlayMusic", false, SendMessageOptions.DontRequireReceiver); changeMusicStatus = false;}
                 if (!pathfinder.pathPending && pathfinder.remainingDistance < 0.5f){
                         //Debug.Log("HACIA OTRO PUNTO");
                         GotoPoint();

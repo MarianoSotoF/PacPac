@@ -17,7 +17,10 @@ public class Blue_Monster_Mecanic: MonoBehaviour
 
     public AudioSource Blue_Monster;
     public AudioClip blue;
-    public AudioClip horror;
+
+    public GameObject global;
+
+    private bool changeMusicStatus = false;
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
@@ -57,8 +60,6 @@ public class Blue_Monster_Mecanic: MonoBehaviour
     //Control wandering process on the monster
      void Movimiento(){
         if(HasBeenInSight){
-            Blue_Monster.PlayOneShot(blue);
-            Blue_Monster.PlayOneShot(horror);
             timer+=Time.deltaTime;
             pathfinder.SetDestination(transform.position);
             HasBeenInSight=timer<=8;
@@ -67,12 +68,17 @@ public class Blue_Monster_Mecanic: MonoBehaviour
             timer=0;
             if(EsVisible()){
                 GameObject monster= SeleccionarMonstruo();
+
+                Blue_Monster.PlayOneShot(blue);
+                if(!changeMusicStatus){global.SendMessage("PlayMusic", true, SendMessageOptions.DontRequireReceiver); changeMusicStatus = true;}
+                changeMusicStatus = true;
                 monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled=false;
                 monster.transform.position=this.transform.position;
                 monster.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled=true;
                 pathfinder.SetDestination(transform.position);}
             else{
                 //Debug.Log("HACIA UN PUNTO");
+                if(changeMusicStatus){global.SendMessage("PlayMusic", false, SendMessageOptions.DontRequireReceiver); changeMusicStatus = false;}
                 if (!pathfinder.pathPending && pathfinder.remainingDistance < 0.5f){
                         //Debug.Log("HACIA OTRO PUNTO");
                         GotoPoint();

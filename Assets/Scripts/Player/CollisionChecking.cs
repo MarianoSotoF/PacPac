@@ -26,22 +26,27 @@ public class CollisionChecking : MonoBehaviour
         if(other.transform.tag == "Exit"){
             global.SendMessage("ExitLevel", SendMessageOptions.DontRequireReceiver);
         }
-        if(other.transform.tag == "Pink_monster"){
+        if(other.transform.tag == "Pink_monster" || 
+           other.transform.tag == "Red_monster" ||
+           other.transform.tag == "Blue_monster" || 
+           other.transform.tag == "Orange_monster"){
             //Debug.Log("Te moristeh");
             other.gameObject.SetActive(false);
+            global.SendMessage("PauseMusic", SendMessageOptions.DontRequireReceiver);
+            CallScreamer(other.transform.tag);
         }
-        if(other.transform.tag == "Red_monster"){
-            //Debug.Log("Te moristeh");
-            other.gameObject.SetActive(false);
-        }
-        if(other.transform.tag == "Blue_monster"){
-            //Debug.Log("Te moristeh");
-            other.gameObject.SetActive(false);
-        }
+
         if(other.transform.tag == "B_Monster_Trigger"){
             //Debug.Log("Te moristeh");
             global.SendMessage("SummonBlueMonster", SendMessageOptions.DontRequireReceiver);
             other.gameObject.SetActive(false);
         }
+    }
+
+    void CallScreamer(string tag){
+        if(tag == "Pink_monster"){}
+        if(tag == "Red_monster"){}
+        if(tag == "Blue_monster"){}
+        if(tag == "Orange_monster"){}
     }
 }

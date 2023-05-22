@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4953,7 +4953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -80.47
+      value: -81.08
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4961,23 +4961,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.7
+      value: 25.285
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9963368
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.0855166
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4985,7 +4985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 9.811
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -17737,6 +17737,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: a87f5c59789a2c24dbba98d39c70ebb4, type: 3}
     - target: {fileID: 3501734973832991564, guid: f6b5ef5cba4cb774888a6ee8ccbf7822, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501734973832991564, guid: f6b5ef5cba4cb774888a6ee8ccbf7822, type: 3}
       propertyPath: DeathScreen
       value: 
       objectReference: {fileID: 1705148978}
@@ -18109,9 +18113,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2708620854985896054, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
+      propertyPath: global
+      value: 
+      objectReference: {fileID: 2146315001}
+    - target: {fileID: 2708620854985896054, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
+      propertyPath: Monster_
+      value: 
+      objectReference: {fileID: 1512019940}
+    - target: {fileID: 2708620854985896054, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2708620854985896054, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
+      propertyPath: monster_cry
+      value: 
+      objectReference: {fileID: 8300000, guid: c681ec5c70ccd8243930a539ba2ab22f, type: 3}
     - target: {fileID: 2708620854985896054, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
       propertyPath: PathPoints.Array.size
       value: 4
@@ -18147,6 +18163,10 @@ PrefabInstance:
     - target: {fileID: 2979022855647989027, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
       propertyPath: m_Name
       value: Pink_monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979022855647989027, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dd54f325d26c0d4b94aefc9f3e3fa3f, type: 3}
@@ -20854,7 +20874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92.3
+      value: 92.92
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20862,7 +20882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 55.2
+      value: 55.41
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20874,7 +20894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -20886,7 +20906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5458968054697918711, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -20920,6 +20940,10 @@ PrefabInstance:
       propertyPath: textoItem
       value: 
       objectReference: {fileID: 1096388260}
+    - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: Keys
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: key_
       value: 
@@ -25259,7 +25283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -80.47
+      value: -81.51
       objectReference: {fileID: 0}
     - target: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29626,7 +29650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845560934051376841, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38531834
+      value: 3.81
       objectReference: {fileID: 0}
     - target: {fileID: 4845560934051376841, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29669,13 +29693,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: b9247fed3391caf4b8591ba7302091d0, type: 3}
     - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
+      propertyPath: global
+      value: 
+      objectReference: {fileID: 2146315001}
+    - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: horror
       value: 
       objectReference: {fileID: 8300000, guid: 5cc1aa886b67ace4182bf9f46ea57d15, type: 3}
     - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
+      propertyPath: Monster_
+      value: 
+      objectReference: {fileID: 537403498}
+    - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
+      propertyPath: monster_cry
+      value: 
+      objectReference: {fileID: 8300000, guid: 27072497103f8c042891435116fe0c84, type: 3}
     - target: {fileID: 4950681406341187877, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: Red_Monster_
       value: 
@@ -29715,6 +29751,10 @@ PrefabInstance:
     - target: {fileID: 5221135777686369395, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: m_Name
       value: Red_monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221135777686369395, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5221135777686369395, guid: 8953cf8dbbf05664da0a5513fd2231e2, type: 3}
       propertyPath: m_TagString
@@ -31991,6 +32031,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: ac3de874dff655847a628dbf8ed14966, type: 3}
     - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
+      propertyPath: global
+      value: 
+      objectReference: {fileID: 2146315001}
+    - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: horror
       value: 
       objectReference: {fileID: 8300000, guid: 5cc1aa886b67ace4182bf9f46ea57d15, type: 3}
@@ -32020,7 +32064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6245101378917897337, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6764650942983065283, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: m_RootOrder
@@ -37416,6 +37460,10 @@ MonoBehaviour:
   BreakableWalls: []
   NumLigths: 0
   NumLigths2: 0
+  Monster_: {fileID: 2146315004}
+  horror: {fileID: 8300000, guid: 5cc1aa886b67ace4182bf9f46ea57d15, type: 3}
+  AmbientMusic: {fileID: 8300000, guid: 558517d0159ee2c44b3dea075372b9e7, type: 3}
+  horror_count: 0
 --- !u!4 &2146315003
 Transform:
   m_ObjectHideFlags: 0

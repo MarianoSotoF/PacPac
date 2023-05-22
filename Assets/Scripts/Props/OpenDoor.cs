@@ -8,6 +8,7 @@ public class OpenDoor : MonoBehaviour
     private GameObject pivot;
     private Collider[] col;
     public bool opened = false;
+    private float currentAngle = 0.0f;
 
     private void Start() {
         pivot = transform.parent.gameObject;
@@ -17,8 +18,11 @@ public class OpenDoor : MonoBehaviour
     private void FixedUpdate() {
         if(opening) {
             pivot.transform.Rotate(0,-3,0);
+            currentAngle += 3;
+            
             Debug.Log(pivot.transform.eulerAngles.y);
-            if(pivot.transform.eulerAngles.y < 253){opening = false; col[1].isTrigger = false;}
+            Debug.Log(currentAngle);
+            if(currentAngle >= 107){opening = false; col[1].isTrigger = false;}
         }
     }
 

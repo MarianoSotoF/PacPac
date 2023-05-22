@@ -13,7 +13,14 @@ public class Lv1_GlobalScript : MonoBehaviour
     GameObject[] Zone2Lights;
     public int NumLigths,NumLigths2;
 
-    private int stage = 0; 
+    private int stage = 0;
+
+    public AudioSource Monster_;
+    public AudioClip horror;
+    public AudioClip AmbientMusic; 
+
+    private bool horror_playing = false;
+    public int horror_count = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +29,21 @@ public class Lv1_GlobalScript : MonoBehaviour
         Zone2Lights=GameObject.FindGameObjectsWithTag("Light2");
         NumLigths=Zone1Lights.Length;
         NumLigths2=Zone2Lights.Length;
+    }
+
+    public void PlayMusic(bool status){
+        if(status){++horror_count;}
+        else{--horror_count; if(horror_count < 0){horror_count = 0;}}
+        UpdateMusic();
+    }
+
+    public void PauseMusic(){
+        Monster_.Stop();
+    }
+
+    private void UpdateMusic(){
+        if(!horror_playing && horror_count > 0){ Monster_.Stop(); Monster_.PlayOneShot(horror); horror_playing = true;}
+        else if(horror_playing && horror_count <= 0){ Monster_.Stop(); Monster_.PlayOneShot(AmbientMusic); horror_playing = false;}
     }
 
     public void UpdateGlobal(){
@@ -48,10 +70,6 @@ public class Lv1_GlobalScript : MonoBehaviour
             Destroy(BreakableWalls[1]);
             stage = 2;
         }
-    }
-
-    public void InOrangeMonsterZone(){
-
     }
     
     public void SummonBlueMonster(){
