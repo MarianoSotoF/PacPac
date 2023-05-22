@@ -8,7 +8,9 @@ public class Pink_Screamer : MonoBehaviour
     public GameObject enemy;
     public GameObject POV;
     public GameObject DeathScreen;
-
+    public AudioSource Pink_monster_;
+    public AudioClip monster;
+    
     // Update is called once per frame
     void FixedUpdate()
     {   
@@ -18,7 +20,7 @@ public class Pink_Screamer : MonoBehaviour
             float speed = 2.35f;
 
             enemy.transform.position += new Vector3(0,-0.025f*speed,0.1f*speed);
-            if(Vector3.Distance(enemy.transform.position, POV.transform.position) <= 7.5f){Light.range = 0.0f; StartCoroutine(showDeathScreen());}
+            if(Vector3.Distance(enemy.transform.position, POV.transform.position) <= 7.5f) {Pink_monster_.PlayOneShot(monster); Light.range = 0.0f; StartCoroutine(showDeathScreen());}
         }
     }
 

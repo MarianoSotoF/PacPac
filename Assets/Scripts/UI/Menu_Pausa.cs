@@ -20,6 +20,7 @@ public class Menu_Pausa : MonoBehaviour
     public AudioClip ClickSound;
     private float lastvolume;
 
+    public AudioSource sound;
     private bool jPausa = false;
 
     private void Start() {
@@ -52,7 +53,7 @@ public class Menu_Pausa : MonoBehaviour
     public void Pausa()
     {
       
-        
+        sound.Pause();
         jPausa = true;
         Time.timeScale = 0f;
         mPausa.SetActive(true);
@@ -62,7 +63,7 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Resume()
     {
-        
+        sound.Play();
         mPausa.SetActive(false);
         Time.timeScale = 1f;
         jPausa = false;
@@ -71,6 +72,7 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Restart()
     {
+        sound.Play();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

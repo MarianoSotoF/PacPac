@@ -10,10 +10,15 @@ public class Lv0_GlobalScript : MonoBehaviour
     public GameObject[] BreakableWalls;
     GameObject[] Zone1Lights;
     private int NumLigths;
+
+    public AudioSource player;
+    public AudioClip level;
+
     
     // Start is called before the first frame update
     void Start()
     {
+
         Zone1Lights=GameObject.FindGameObjectsWithTag("Light");
         NumLigths=Zone1Lights.Length;
     }
@@ -23,6 +28,8 @@ public class Lv0_GlobalScript : MonoBehaviour
     }
 
     public void ExitLevel(){
+
+        player.PlayOneShot(level);
         SceneManager.LoadScene("Level_1");
     }
 

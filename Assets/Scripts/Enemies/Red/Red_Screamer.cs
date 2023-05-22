@@ -9,6 +9,9 @@ public class Red_Screamer : MonoBehaviour
     public GameObject POV;
     public GameObject DeathScreen;
 
+    public AudioSource Red_monster_;
+    public AudioClip monster;
+
     private float TotalRotation = 0.0f;
     private int stage = 0;
 
@@ -41,7 +44,8 @@ public class Red_Screamer : MonoBehaviour
         }
         else{
             enemy.transform.position += new Vector3(0,-speed,0);
-            if(Vector3.Distance(enemy.transform.position, POV.transform.position) <= 1.0f){Light.range = 0.0f; StartCoroutine(showDeathScreen());}
+            Red_monster_.PlayOneShot(monster);
+            if(Vector3.Distance(enemy.transform.position, POV.transform.position) <= 1.0f){ Light.range = 0.0f; StartCoroutine(showDeathScreen());}
         }
     }
 

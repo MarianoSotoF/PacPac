@@ -9,6 +9,12 @@ public class ItemList : MonoBehaviour
     bool OnItem=false;
     public int Keys=0;
 
+    public AudioSource player;
+    public AudioClip key_;
+    public AudioClip lights_;
+    public AudioClip door_;
+    public AudioClip error;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -35,6 +41,7 @@ public class ItemList : MonoBehaviour
             textoItem.text="Press 'E' to pick up " + other.gameObject.tag;
             if(Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("ES UNA LLAVE");
+                player.PlayOneShot(key_);
                 Keys++;
                 Destroy(other.gameObject);
                 textoItem.text="";
@@ -45,17 +52,22 @@ public class ItemList : MonoBehaviour
             textoItem.text="Press 'E' to Open "+other.gameObject.tag;
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
             // Debug.Log("OPEN DOOR");
+            player.PlayOneShot(door_);
             Keys--;
             other.gameObject.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
             textoItem.text="";}
-            else if(Keys<=0)
-            textoItem.text="You don't have any key";
+            else if(Keys<=0){
+                textoItem.text="You don't have any key";
+                player.PlayOneShot(error);
+            }
+            
         }
     }
     void OnTriggerExit(Collider other) {
         textoItem.text="";
 
         if(other.transform.tag == "Light"){
+            player.PlayOneShot(lights_);
             if(linterna.GetComponent<Light>().intensity*1.2f <= 7){
                 linterna.GetComponent<Light>().intensity*=1.2f;
             }else{

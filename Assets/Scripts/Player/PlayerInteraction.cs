@@ -8,6 +8,9 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
     public Text textoItem; 
+    
+    public AudioSource player;
+    public AudioClip chart_;
 
     private int MaxLights = 0;
     private int darkness;
@@ -23,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         InteractRaycast();
         //Show/ Hide Darkness Chart
         if (Input.GetKeyDown(KeyCode.M)){
+            player.PlayOneShot(chart_);
             UpdateDarknessChart();
             darknessChart.SetActive(!darknessChart.activeSelf);
         }

@@ -9,6 +9,9 @@ public class Orange_Screamer : MonoBehaviour
     public GameObject POV;
     public GameObject DeathScreen;
 
+    public AudioSource Orange_monster_;
+    public AudioClip monster;
+    
     // Update is called once per frame
     void FixedUpdate()
     {   
@@ -20,6 +23,7 @@ public class Orange_Screamer : MonoBehaviour
             Light.transform.Rotate(0, rotationValue, 0, Space.World);
         }
         else{
+            Orange_monster_.PlayOneShot(monster);
             enemy.transform.position += new Vector3(0, 0, speed);
             if(Vector3.Distance(enemy.transform.position, POV.transform.position) <= 1.6f){Light.range = 0.0f; StartCoroutine(showDeathScreen());}
         }

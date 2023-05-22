@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class EnemyMovement : MonoBehaviour
     protected int destPoint=0;
     protected bool HasBeenInSight=false;
     public Transform[] PathPoints;
+
+    public AudioSource Red_Monster_;
+    public AudioClip red;
+    public AudioClip horror;
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
@@ -44,6 +50,8 @@ public class EnemyMovement : MonoBehaviour
     //Control wandering process on the monster
     protected void Wandering(){
         if(HasBeenInSight){
+            Red_Monster_.PlayOneShot(red);
+            Red_Monster_.PlayOneShot(horror);
             //Debug.Log("TE VEO");
             timer+=Time.deltaTime;
             pathfinder.SetDestination(Player.position);

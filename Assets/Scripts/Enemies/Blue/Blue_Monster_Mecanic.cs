@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Blue_Monster_Mecanic: MonoBehaviour
 {
@@ -12,6 +14,10 @@ public class Blue_Monster_Mecanic: MonoBehaviour
     protected int destPoint=0;
     protected bool HasBeenInSight=false;
     public Transform[] PathPoints;
+
+    public AudioSource Blue_Monster;
+    public AudioClip blue;
+    public AudioClip horror;
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
@@ -51,6 +57,8 @@ public class Blue_Monster_Mecanic: MonoBehaviour
     //Control wandering process on the monster
      void Movimiento(){
         if(HasBeenInSight){
+            Blue_Monster.PlayOneShot(blue);
+            Blue_Monster.PlayOneShot(horror);
             timer+=Time.deltaTime;
             pathfinder.SetDestination(transform.position);
             HasBeenInSight=timer<=8;
