@@ -37563,13 +37563,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1204871333}
   BlueMonster: {fileID: 1440004137}
+  screamerBoxes:
+  - {fileID: 115163218}
+  - {fileID: 1248227602}
+  - {fileID: 728593663}
+  - {fileID: 984782207}
   BreakableWalls: []
   NumLigths: 0
   NumLigths2: 0
   Monster_: {fileID: 2146315004}
   horror: {fileID: 8300000, guid: 5cc1aa886b67ace4182bf9f46ea57d15, type: 3}
   AmbientMusic: {fileID: 8300000, guid: 558517d0159ee2c44b3dea075372b9e7, type: 3}
-  horror_count: 0
 --- !u!4 &2146315003
 Transform:
   m_ObjectHideFlags: 0

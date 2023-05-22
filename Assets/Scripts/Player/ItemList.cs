@@ -7,7 +7,6 @@ public class ItemList : MonoBehaviour
 {
     public GameObject linterna;
     public Text textoItem; 
-    bool OnItem=false;
     public int Keys=0;
 
     public AudioSource player;

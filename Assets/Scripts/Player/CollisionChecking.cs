@@ -33,7 +33,10 @@ public class CollisionChecking : MonoBehaviour
             //Debug.Log("Te moristeh");
             other.gameObject.SetActive(false);
             global.SendMessage("PauseMusic", SendMessageOptions.DontRequireReceiver);
-            CallScreamer(other.transform.tag);
+            //Desabilitate player
+            transform.GetChild(0).GetComponent<Camera>().gameObject.SetActive(false);
+            transform.position += new Vector3(0, -100, 0);
+            global.SendMessage("CallScreamer", other.transform.tag, SendMessageOptions.DontRequireReceiver);
         }
 
         if(other.transform.tag == "B_Monster_Trigger"){
@@ -41,12 +44,5 @@ public class CollisionChecking : MonoBehaviour
             global.SendMessage("SummonBlueMonster", SendMessageOptions.DontRequireReceiver);
             other.gameObject.SetActive(false);
         }
-    }
-
-    void CallScreamer(string tag){
-        if(tag == "Pink_monster"){}
-        if(tag == "Red_monster"){}
-        if(tag == "Blue_monster"){}
-        if(tag == "Orange_monster"){}
     }
 }
