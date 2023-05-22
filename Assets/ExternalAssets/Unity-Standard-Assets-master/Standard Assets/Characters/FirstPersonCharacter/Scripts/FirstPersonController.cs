@@ -43,8 +43,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
-        private float Stamina_ = 100.0f;
-        private float minStamina_ = 0.1f;
+        public float Stamina_ = 100.0f;
+        public float minStamina_ = 0.1f;
         private bool penalty = false;
 
         public PostProcessVolume postPros;

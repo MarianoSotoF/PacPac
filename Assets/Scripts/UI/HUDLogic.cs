@@ -28,7 +28,7 @@ public class HUDLogic : MonoBehaviour
         float intensity = (linterna.GetComponent<Light>().intensity - 1.5f) / 5.5f;
         ChangeGauge(battery, intensity);
 
-        float sprintSpeed = (linterna.GetComponent<Light>().intensity - 1.5f) / 5.5f;
-        ChangeGauge(sprint, intensity);
+        float sprintSpeed = (speedController.Stamina_ - speedController.minStamina_) / (100f - speedController.minStamina_);
+        ChangeGauge(sprint, sprintSpeed);
     }
 }
