@@ -7,10 +7,17 @@ public class PlayerInteraction : MonoBehaviour
 {
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
+<<<<<<< Updated upstream
     public Text textoItem;
 
     public AudioSource player;
     public AudioClip dchart;
+=======
+    public Text textoItem; 
+    
+    public AudioSource player;
+    public AudioClip chart_;
+>>>>>>> Stashed changes
 
     private int MaxLights = 0;
     private int darkness;
@@ -28,7 +35,11 @@ public class PlayerInteraction : MonoBehaviour
         InteractRaycast();
         //Show/ Hide Darkness Chart
         if (Input.GetKeyDown(KeyCode.M)){
+<<<<<<< Updated upstream
             player.PlayOneShot(dchart);
+=======
+            player.PlayOneShot(chart_);
+>>>>>>> Stashed changes
             UpdateDarknessChart();
             darknessChart.SetActive(!darknessChart.activeSelf);
         }

@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
     public GameObject Panel;
     public GameObject Options;
     public GameObject Play_Panel;
+    public GameObject Credits;
 
 
     private void awake()
@@ -54,6 +55,7 @@ public class Menu : MonoBehaviour
         Panel.SetActive(false);
         Options.SetActive(false);
         Play_Panel.SetActive(false);
+        Credits.SetActive(false);
         panel.SetActive(true);
 
         PlaySoundButton();

@@ -20,6 +20,7 @@ public class Menu_Pausa : MonoBehaviour
     public AudioClip ClickSound;
     private float lastvolume;
 
+    public AudioSource sound;
     private bool jPausa = false;
 
     private void Start() {
@@ -58,8 +59,13 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Pausa()
     {
+<<<<<<< Updated upstream
         Cursor.visible = true;
 
+=======
+      
+        sound.Pause();
+>>>>>>> Stashed changes
         jPausa = true;
         Time.timeScale = 0f;
         mPausa.SetActive(true);
@@ -69,8 +75,12 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Resume()
     {
+<<<<<<< Updated upstream
         mixer.SetFloat("VOLMASTER", -80);
 
+=======
+        sound.Play();
+>>>>>>> Stashed changes
         mPausa.SetActive(false);
         Time.timeScale = 1f;
         jPausa = false;
@@ -79,7 +89,11 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Restart()
     {
+<<<<<<< Updated upstream
         mixer.SetFloat("VOLMASTER", -80);
+=======
+        sound.Play();
+>>>>>>> Stashed changes
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

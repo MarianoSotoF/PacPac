@@ -24,11 +24,28 @@ public class DeathScreen_functions : MonoBehaviour
         DeathText = this.transform.GetChild(1).GetComponent<Text>();
         DeathText.text = DeathMessages[Random.Range(0, DeathMessages.Length)];
         //Get reset button and add its functionality
-        Restart_button = GameObject.FindWithTag("DeathRestartButton").GetComponent<Button>();
-        Restart_button.onClick.AddListener(ResetLevel);
+        //Restart_button = GameObject.FindWithTag("DeathRestartButton").GetComponent<Button>();
+        //Restart_button.onClick.AddListener(ResetLevel);
         //Get return button and add its functionality
-        Return_button = GameObject.FindWithTag("DeathReturnButton").GetComponent<Button>();
-        Return_button.onClick.AddListener(ReturnToMenu);
+        //Return_button = GameObject.FindWithTag("DeathReturnButton").GetComponent<Button>();
+        //Return_button.onClick.AddListener(ReturnToMenu);
+    }
+
+    public void Restart(){
+
+        Cursor.visible = !Cursor.visible;
+        Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+    }
+
+    public void Exit(){
+
+        Debug.Log("Volviendo al Menu Principal...");
+        SceneManager.LoadScene("Main_Menu");
+        Cursor.visible = !Cursor.visible;
+        Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+
     }
 
     void ResetLevel(){

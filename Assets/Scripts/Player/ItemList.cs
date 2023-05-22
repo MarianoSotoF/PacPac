@@ -9,12 +9,20 @@ public class ItemList : MonoBehaviour
     bool OnItem=false;
     public int Keys=0;
 
+<<<<<<< Updated upstream
     //Sounds
 
     public AudioSource player;
     public AudioClip key;
     public AudioClip Light;
     public AudioClip Door;
+=======
+    public AudioSource player;
+    public AudioClip key_;
+    public AudioClip lights_;
+    public AudioClip door_;
+    public AudioClip error;
+>>>>>>> Stashed changes
 
     // Update is called once per frame
     void FixedUpdate()
@@ -44,6 +52,7 @@ public class ItemList : MonoBehaviour
 
                 player.PlayOneShot(key);
             // Debug.Log("ES UNA LLAVE");
+                player.PlayOneShot(key_);
                 Keys++;
                 Destroy(other.gameObject);
                 textoItem.text="";
@@ -53,6 +62,7 @@ public class ItemList : MonoBehaviour
          if(other.gameObject.CompareTag("Door")){
             textoItem.text="Press 'E' to Open "+other.gameObject.tag;
             if(Keys>0 && Input.GetKeyDown(KeyCode.E)){
+<<<<<<< Updated upstream
 
                 player.PlayOneShot(Door);
                 // Debug.Log("OPEN DOOR");
@@ -61,13 +71,29 @@ public class ItemList : MonoBehaviour
                 textoItem.text="";}
                 else if(Keys<=0)
                 textoItem.text="You don't have any key";
+=======
+            // Debug.Log("OPEN DOOR");
+            player.PlayOneShot(door_);
+            Keys--;
+            other.gameObject.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
+            textoItem.text="";}
+            else if(Keys<=0){
+                textoItem.text="You don't have any key";
+                player.PlayOneShot(error);
+            }
+            
+>>>>>>> Stashed changes
         }
     }
     void OnTriggerExit(Collider other) {
         textoItem.text="";
 
         if(other.transform.tag == "Light"){
+<<<<<<< Updated upstream
             player.PlayOneShot(Light);
+=======
+            player.PlayOneShot(lights_);
+>>>>>>> Stashed changes
             if(linterna.GetComponent<Light>().intensity*1.2f <= 7){
                 linterna.GetComponent<Light>().intensity*=1.2f;
             }else{
