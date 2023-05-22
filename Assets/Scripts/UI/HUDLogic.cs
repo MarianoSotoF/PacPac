@@ -12,6 +12,9 @@ public class HUDLogic : MonoBehaviour
     private GameObject linterna;
     private FirstPersonController speedController;
 
+    public Color staminaUnpunished; 
+    public Color staminaPunished; 
+
     void Start() {
         sprint = transform.GetChild(0).GetChild(1);
         battery = transform.GetChild(1).GetChild(1);
@@ -28,7 +31,12 @@ public class HUDLogic : MonoBehaviour
         float intensity = (linterna.GetComponent<Light>().intensity - 1.5f) / 5.5f;
         ChangeGauge(battery, intensity);
 
-        float sprintSpeed = (speedController.Stamina_ - speedController.minStamina_) / (100f - speedController.minStamina_);
+        float sprintSpeed = speedController.Stamina_ / 100f;
         ChangeGauge(sprint, sprintSpeed);
+        if(!speedController.penalty) {
+            sprint.gameObject.GetComponent<Image>().color = staminaUnpunished;
+        } else {
+            sprint.gameObject.GetComponent<Image>().color = staminaPunished;
+        }
     }
 }

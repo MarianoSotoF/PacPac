@@ -44,8 +44,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         public float Stamina_ = 100.0f;
-        public float minStamina_ = 0.1f;
-        private bool penalty = false;
+        public float unpenalityThreshold = 30.0f;
+        public float timeLoseStamina = 8.0f;
+        private float decrStamina;
+        public float timeRecoveryStamina = 5.0f;
+        private float incrStamina;
+        public bool penalty = false;
 
         public PostProcessVolume postPros;
 
@@ -62,6 +66,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            decrStamina = 100.0f / timeLoseStamina;
+            incrStamina = 100.0f / timeRecoveryStamina;
         }
 
 
@@ -158,10 +164,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
                              Time.fixedDeltaTime;
                 //Stamina consumption
-                if(!m_IsWalking && Stamina_ > minStamina_ && !penalty){Stamina_=Stamina_*0.975f;}
+                if(!m_IsWalking && Stamina_ > 0.0f && !penalty) {
+                    Stamina_ = Math.Max(Stamina_-decrStamina*Time.deltaTime, 0.0f);
+                }
             }
+
             //Stamina recovery
-            if((m_IsWalking || Stamina_ <= minStamina_ || penalty) && Stamina_ < 100.0f){Stamina_=Stamina_*1.005f;} 
+            if((m_IsWalking || penalty) && Stamina_ < 100.0f) {
+                Stamina_ = Math.Min(Stamina_ + incrStamina * Time.deltaTime, 100.0f);
+            } 
 
             //Update visual Stamina visual effect
             nextVg = 0.4f + 0.35f*(100-Stamina_)/100;
@@ -237,14 +248,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #endif
             // set the desired speed to be walking or running
             // If there isn't enought stamina to run the player gets a penalty (just once) and won't run until it recovers 
-            if(Stamina_ <= minStamina_ || penalty){
+            if(Stamina_ <= 0f || penalty) {
                 //Give punishment for using all stamina (just once)
-                if(!penalty){penalty = true; Stamina_=Stamina_*0.75f;}
+                if(!penalty) {penalty = true;}
                 //Forbid running until fully recover
-                if(Stamina_ >= 100){penalty = false;}
+                if(Stamina_ >= unpenalityThreshold) { penalty = false; }
                 //Exhausted when stamina is bellow its minumun => 80% of walking speed
-                if(Stamina_ <= minStamina_){speed = m_WalkSpeed*0.8f;}
-                else{speed = m_WalkSpeed;}
+                speed = Stamina_ <= unpenalityThreshold ? m_WalkSpeed * 0.8f : m_WalkSpeed;
             }
             else{speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;}
             m_Input = new Vector2(horizontal, vertical);

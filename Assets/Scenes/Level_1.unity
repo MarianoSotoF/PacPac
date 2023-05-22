@@ -4039,6 +4039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1115705066}
+  staminaPunished: {r: 0.78431374, g: 0.078431375, b: 0.078431375, a: 1}
+  staminaUnpunished: {r: 0.15312389, g: 0.8773585, b: 0.16175778, a: 1}
 --- !u!1001 &240782744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18013,6 +18015,22 @@ PrefabInstance:
       propertyPath: postPros
       value: 
       objectReference: {fileID: 332328277}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: timeStamina
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: timeLoseStamina
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: timeRecoveryStamina
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: unpenalityThreshold
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5458968054730646848, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: volumeTrigger
       value: 
@@ -30327,15 +30345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9014485713650857479, guid: 1d4fa40a7d9abc99fa98fccc9194d9dc, type: 3}
       propertyPath: m_Color.b
-      value: 0.16998434
+      value: 0.14391243
       objectReference: {fileID: 0}
     - target: {fileID: 9014485713650857479, guid: 1d4fa40a7d9abc99fa98fccc9194d9dc, type: 3}
       propertyPath: m_Color.g
-      value: 0.7264151
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 9014485713650857479, guid: 1d4fa40a7d9abc99fa98fccc9194d9dc, type: 3}
       propertyPath: m_Color.r
-      value: 0.14733891
+      value: 0.14469616
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4fa40a7d9abc99fa98fccc9194d9dc, type: 3}
