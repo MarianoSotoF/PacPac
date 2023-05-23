@@ -70,6 +70,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             incrStamina = 100.0f / timeRecoveryStamina;
         }
 
+        public void LockCamera(bool pause){
+            if(pause){
+                m_MouseLook.XSensitivity = 0f;
+                m_MouseLook.YSensitivity = 0f;
+            }else{
+                m_MouseLook.XSensitivity = 2.0f;
+                m_MouseLook.YSensitivity = 2.0f;
+            }
+        }
 
         // Update is called once per frame
         private void Update()

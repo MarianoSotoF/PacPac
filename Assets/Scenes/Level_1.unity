@@ -28981,6 +28981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53c9c323d7fed54aa151e18693815f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1204871331}
   mPausa: {fileID: 2028786919}
   mPausa_Options: {fileID: 1683587071}
   volume: {fileID: 732473370}

@@ -7685,6 +7685,18 @@ PrefabInstance:
       propertyPath: timeRecoveryStamina
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: m_MouseLook.lockCursor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: m_MouseLook.XSensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968054703745335, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: m_MouseLook.YSensitivity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5458968054730646848, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: m_ShowToolkit
       value: 0
@@ -11650,6 +11662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53c9c323d7fed54aa151e18693815f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1204871333}
   mPausa: {fileID: 1723982353}
   mPausa_Options: {fileID: 1539453161}
   volume: {fileID: 2011472535}

@@ -9,6 +9,8 @@ public class Menu_Pausa : MonoBehaviour
 {
     //GameObject
 
+    public GameObject player;
+
     [SerializeField] private GameObject mPausa;
     [SerializeField] private GameObject mPausa_Options;
 
@@ -45,10 +47,12 @@ public class Menu_Pausa : MonoBehaviour
             {
                 //Change volume
                 mixer.SetFloat("VOLMASTER", -80);
+                player.SendMessage("LockCamera", false, SendMessageOptions.DontRequireReceiver);
                 Resume();
             }
             else
             {
+                player.SendMessage("LockCamera", true, SendMessageOptions.DontRequireReceiver);
                 Pausa();
                 mixer.SetFloat("VOLMASTER", 0);         
             }
@@ -72,7 +76,7 @@ public class Menu_Pausa : MonoBehaviour
         mPausa.SetActive(false);
         Time.timeScale = 1f;
         jPausa = false;
-
+        player.SendMessage("LockCamera", false, SendMessageOptions.DontRequireReceiver);
     }
 
     //Restart level
@@ -93,7 +97,6 @@ public class Menu_Pausa : MonoBehaviour
     // ---------- MENU_OPTIONS ----------
 
     public void Menu_Pausa_Options(){
-
         volume.onValueChanged.AddListener(ChangeVolumeMaster);
         fxvolume.onValueChanged.AddListener(ChangeVolumeFX);
         mPausa.SetActive(false);
@@ -105,7 +108,6 @@ public class Menu_Pausa : MonoBehaviour
     //Exit to menu_pause
 
     public void Exit_Options(){
-
         PlaySoundButton();
         mPausa_Options.SetActive(false);
         mPausa.SetActive(true);
@@ -147,6 +149,4 @@ public class Menu_Pausa : MonoBehaviour
     {
         fxsource.PlayOneShot(ClickSound);
     }
-
-
 }
