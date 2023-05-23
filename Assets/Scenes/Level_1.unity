@@ -23653,9 +23653,13 @@ PrefabInstance:
       propertyPath: textoItem
       value: 
       objectReference: {fileID: 1096388260}
+    - target: {fileID: 5458968054730646911, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: wallAlert
+      value: 
+      objectReference: {fileID: 2054957296}
     - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: Keys
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: key_

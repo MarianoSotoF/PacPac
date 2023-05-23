@@ -8,8 +8,9 @@ public class PlayerInteraction : MonoBehaviour
     //Common params
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
-    public Text textoItem; 
-    
+    public Text textoItem;
+    public Text wallAlert;
+
     //Audio params
     public AudioSource player;
     public AudioClip chart_;
@@ -63,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
 
         //Collision check
         bool hitFound = Physics.Raycast(interactionRay, out interactionRayHit, interactionRayLength);
-        
+
         if(hitFound){
             GameObject hitGameObject = interactionRayHit.transform.gameObject;
 
@@ -75,11 +76,13 @@ public class PlayerInteraction : MonoBehaviour
             // Change action text to black when looking at a door
             if(hitGameObject.CompareTag("Door")){
                 textoItem.color = Color.black;
+                wallAlert.color = Color.black;
             }
-            
+
             // Change action text to white by default
             if(!hitGameObject.CompareTag("Door")){
                 textoItem.color = Color.white;
+                wallAlert.color = Color.white;
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Lv0_GlobalScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Lv0_GlobalScript : MonoBehaviour
     public GameObject[] BreakableWalls;
     private GameObject[] Zone1Lights;
     private int NumLigths;
+    public Text wallAlert;
 
     //Audio params
     public AudioSource player;
@@ -35,13 +37,19 @@ public class Lv0_GlobalScript : MonoBehaviour
         SceneManager.LoadScene("Level_1");
     }
 
+    private IEnumerator AlertDestroyedWall() {
+        wallAlert.text = "A new path is unblocked...";
+        yield return new WaitForSeconds(2f);
+        wallAlert.text = "";
+    }
+
     //Update light counting
     private void UpdateZoneLights(){
         NumLigths--;
         if(NumLigths==0){
             Destroy(BreakableWalls[0]);
+            StartCoroutine(AlertDestroyedWall());
             Player.darkness=0;
         }
-
     }
 }

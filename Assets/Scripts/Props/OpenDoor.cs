@@ -20,9 +20,9 @@ public class OpenDoor : MonoBehaviour
         if(opening) {
             pivot.transform.Rotate(0,-3,0);
             currentAngle += 3;
-            
-            Debug.Log(pivot.transform.eulerAngles.y);
-            Debug.Log(currentAngle);
+
+            // Debug.Log(pivot.transform.eulerAngles.y);
+            // Debug.Log(currentAngle);
             if(currentAngle >= 107){opening = false; col[1].isTrigger = false;}
         }
     }
