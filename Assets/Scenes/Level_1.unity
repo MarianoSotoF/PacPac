@@ -24774,6 +24774,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5458968054690121015, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
   m_PrefabInstance: {fileID: 1204871330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275475993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5560102983989340214, guid: 91b4b8046596f4947a52034d9c086eab, type: 3}
+  m_PrefabInstance: {fileID: 826211494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1278955070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8936741687905067716, guid: 77141fd98f0ba3c449b096eb26cacf44, type: 3}
@@ -35974,12 +35979,28 @@ PrefabInstance:
       objectReference: {fileID: 1440004142}
     - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: PathPoints.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: PathPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1950720205}
+      objectReference: {fileID: 83670921}
+    - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
+      propertyPath: PathPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 624081616}
+    - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
+      propertyPath: PathPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 983221684}
+    - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
+      propertyPath: PathPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1444956661}
+    - target: {fileID: 1439544615211411556, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
+      propertyPath: PathPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 2132528792}
     - target: {fileID: 5977211828891451449, guid: a88c95fbaabfc944189e63154ecdd53b, type: 3}
       propertyPath: m_AutoRepath
       value: 1
@@ -36669,6 +36690,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 537879252509134630, guid: 19acaa8ef40339046bc64f2bd969bfb1, type: 3}
   m_PrefabInstance: {fileID: 1886341908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1890273311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5560102983989340214, guid: 91b4b8046596f4947a52034d9c086eab, type: 3}
+  m_PrefabInstance: {fileID: 1924046798}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1891069765
 PrefabInstance:
@@ -41757,7 +41783,9 @@ MonoBehaviour:
   - {fileID: 984782207}
   victoryScreen: {fileID: 1744526096}
   wallAlert: {fileID: 2054957296}
-  BreakableWalls: []
+  BreakableWalls:
+  - {fileID: 1275475993}
+  - {fileID: 1890273311}
   NumLigths: 0
   NumLigths2: 0
   Monster_: {fileID: 2146315004}

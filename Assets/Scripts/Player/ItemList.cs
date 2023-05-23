@@ -73,7 +73,7 @@ public class ItemList : MonoBehaviour
         textoItem.text="";
 
         //Check if you broke the light
-        if(other.transform.tag == "Light"){
+        if(other.transform.tag == "Light" ||other.transform.tag == "Light2"){
             player.PlayOneShot(lights_);
             Light l = linterna.GetComponent<Light>();
             l.intensity = Math.Min(lanternMax, l.intensity + lanternIncr); //Update light count
