@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    //Common params
     public GameObject darknessChart;
     public Sprite[] darknessChartLevels;
     public Text textoItem; 
     
+    //Audio params
     public AudioSource player;
     public AudioClip chart_;
 
+    //Light params
     private int MaxLights = 0;
     private int darkness;
 
     void Start() {
+        //Initialicing total number of lights
         MaxLights = GameObject.FindGameObjectsWithTag("Light").Length;
     }
 
@@ -24,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         //Raycasting
         InteractRaycast();
-        //Show/ Hide Darkness Chart
+        //Show / Hide Darkness Chart
         if (Input.GetKeyDown(KeyCode.M)){
             player.PlayOneShot(chart_);
             UpdateDarknessChart();
@@ -33,15 +37,18 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     void FixedUpdate() {
+        //Update darkness status
         darkness = transform.parent.GetComponent<CollisionChecking>().darkness;
         if(darknessChart.activeSelf){UpdateDarknessChart();}
     }
 
+    //Update darkness chart image
     void UpdateDarknessChart(){
         int darknessLevel = (int)Mathf.Floor(((float)darkness/MaxLights)*(darknessChartLevels.Length-1));
         darknessChart.transform.GetChild(0).GetComponent<Image>().sprite = darknessChartLevels[darknessLevel];
     }
 
+    //Raycasting
     void InteractRaycast()
     {
         Vector3 playerPosition = transform.position;
@@ -54,6 +61,7 @@ public class PlayerInteraction : MonoBehaviour
         Vector3 interactionRayEndpoint = forwardDirection * interactionRayLength + playerPosition;
         Debug.DrawLine(playerPosition, interactionRayEndpoint);
 
+        //Collision check
         bool hitFound = Physics.Raycast(interactionRay, out interactionRayHit, interactionRayLength);
         
         if(hitFound){

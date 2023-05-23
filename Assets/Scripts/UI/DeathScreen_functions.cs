@@ -14,6 +14,7 @@ public class DeathScreen_functions : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0f;
+        //Random advise text
         string[] DeathMessages = new string[]{"Keep your light save... IT's dark...",
                                               "It's fast... don't look away", 
                                               "Don't look back... but keep an eye on heights.",
@@ -22,36 +23,22 @@ public class DeathScreen_functions : MonoBehaviour
         //Get death text and randomly select message to show
         DeathText = this.transform.GetChild(1).GetComponent<Text>();
         DeathText.text = DeathMessages[Random.Range(0, DeathMessages.Length)];
-        //Get reset button and add its functionality
-        //Restart_button = GameObject.FindWithTag("DeathRestartButton").GetComponent<Button>();
-        //Restart_button.onClick.AddListener(ResetLevel);
-        //Get return button and add its functionality
-        //Return_button = GameObject.FindWithTag("DeathReturnButton").GetComponent<Button>();
-        //Return_button.onClick.AddListener(ReturnToMenu);
     }
 
+    //Reset current level
     public void Restart(){
-
         Cursor.visible = !Cursor.visible;
         Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
     }
 
+    //Exit to main menu
     public void Exit(){
-
         Debug.Log("Volviendo al Menu Principal...");
         SceneManager.LoadScene("Main_Menu");
         Cursor.visible = !Cursor.visible;
         Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
 
-    }
-
-    void ResetLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    void ReturnToMenu(){
-        SceneManager.LoadScene("Main_Menu");
     }
 }

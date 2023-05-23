@@ -16,6 +16,7 @@ public class OpenDoor : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        //Start opening animation
         if(opening) {
             pivot.transform.Rotate(0,-3,0);
             currentAngle += 3;
@@ -26,7 +27,8 @@ public class OpenDoor : MonoBehaviour
         }
     }
 
-    public void CloseDoor() {
+    public void Open() {
+        //Forbid opening again
         opening = true;
         col[1].isTrigger = true;
         opened = true;

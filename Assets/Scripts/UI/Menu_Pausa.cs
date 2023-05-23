@@ -24,14 +24,12 @@ public class Menu_Pausa : MonoBehaviour
     private bool jPausa = false;
 
     private void Start() {
-
         mixer.SetFloat("VOLMASTER", -80);
-        
     }
 
     private void Update()
     {
-
+        //Detect when menu is selected
         if(Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Pausa");
@@ -47,20 +45,19 @@ public class Menu_Pausa : MonoBehaviour
                 mixer.SetFloat("VOLMASTER", 0);         
             }
         }
-
     }
 
+    //Pause game
     public void Pausa()
     {
-      
         sound.Pause();
         jPausa = true;
         Time.timeScale = 0f;
         mPausa.SetActive(true);
         PlaySoundButton();
-
     }
 
+    //Resume game
     public void Resume()
     {
         sound.Play();
@@ -70,6 +67,7 @@ public class Menu_Pausa : MonoBehaviour
 
     }
 
+    //Restart level
     public void Restart()
     {
         sound.Play();
@@ -77,6 +75,7 @@ public class Menu_Pausa : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    //Exit to main menu
     public void Exit()
     {
         Debug.Log("Volviendo al Menu Principal...");
@@ -100,7 +99,6 @@ public class Menu_Pausa : MonoBehaviour
         PlaySoundButton();
         mPausa_Options.SetActive(false);
         mPausa.SetActive(true);
-
     }
 
     public void SetMute()
@@ -110,7 +108,6 @@ public class Menu_Pausa : MonoBehaviour
             mixer.GetFloat("VOLMASTER", out lastvolume);
 
             mixer.SetFloat("VOLMASTER", -80);
-
         }
         else
         {
@@ -120,16 +117,12 @@ public class Menu_Pausa : MonoBehaviour
 
     public void ChangeVolumeMaster (float v)
     {
-
         mixer.SetFloat("VOLMASTER", v);
-
     }
 
     public void ChangeVolumeFX (float v)
     {
-
         mixer.SetFloat("VOLFX", v);
-
     }
 
     public void PlaySoundButton()

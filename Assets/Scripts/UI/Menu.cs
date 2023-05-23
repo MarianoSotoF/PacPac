@@ -24,17 +24,13 @@ public class Menu : MonoBehaviour
     public GameObject Credits;
 
     private void Start(){
-
         // Cambiar el estado del cursor
         if(Cursor.visible == false){
-
             Cursor.visible = !Cursor.visible;
             Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
             
             Time.timeScale = 1f;
         }
-        
-        
     }
 
     private void awake()
@@ -43,19 +39,19 @@ public class Menu : MonoBehaviour
         fxvolume.onValueChanged.AddListener(ChangeVolumeFX);
     }
 
+    //Return to main menu
     public void loadPrincipalScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
 
+    //Mute control
     public void SetMute()
     {
         if (mute.isOn)
         {
             mixer.GetFloat("VOLMASTER", out lastvolume);
-
             mixer.SetFloat("VOLMASTER", -80);
-
         }
         else
         {
@@ -63,8 +59,8 @@ public class Menu : MonoBehaviour
         }
     }
 
+    //Show menu 
     public void OpenPanel(GameObject panel) {
-
         Panel.SetActive(false);
         Options.SetActive(false);
         Play_Panel.SetActive(false);
@@ -75,20 +71,19 @@ public class Menu : MonoBehaviour
     
     }
 
+    //Set new main volume
     public void ChangeVolumeMaster (float v)
     {
-
         mixer.SetFloat("VOLMASTER", v);
-
     }
 
+    //Set FX volume
     public void ChangeVolumeFX (float v)
     {
-
         mixer.SetFloat("VOLFX", v);
-
     }
 
+    //Set click sound
     public void PlaySoundButton()
     {
         fxsource.PlayOneShot(ClickSound);
