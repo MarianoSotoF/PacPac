@@ -13,10 +13,11 @@ public class DeathScreen_functions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Pause time
         Time.timeScale = 0f;
         //Random advise text
         string[] DeathMessages = new string[]{"Keep your light save... IT's dark...",
-                                              "It's fast... don't look away", 
+                                              "It's fast... don't look away",
                                               "Don't look back... but keep an eye on heights.",
                                               "It's small... get hid."};
 
@@ -30,7 +31,6 @@ public class DeathScreen_functions : MonoBehaviour
         Cursor.visible = !Cursor.visible;
         Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
     }
 
     //Exit to main menu
@@ -39,6 +39,5 @@ public class DeathScreen_functions : MonoBehaviour
         SceneManager.LoadScene("Main_Menu");
         Cursor.visible = !Cursor.visible;
         Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
-
     }
 }
