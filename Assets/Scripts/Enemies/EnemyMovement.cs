@@ -31,7 +31,9 @@ public class EnemyMovement : MonoBehaviour
         // Returns if no points have been set up
         if (PathPoints.Length == 0)
             return;
-        destPoint=(destPoint+1)%PathPoints.Length;
+
+
+        destPoint=(int)Random.Range(0,PathPoints.Length);
         // Set the agent to go to the currently selected destination.
         pathfinder.destination = PathPoints[destPoint].position;
     }
