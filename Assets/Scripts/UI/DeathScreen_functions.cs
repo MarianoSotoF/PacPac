@@ -39,5 +39,6 @@ public class DeathScreen_functions : MonoBehaviour
         SceneManager.LoadScene("Main_Menu");
         Cursor.visible = !Cursor.visible;
         Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+        Time.timeScale = 0f;
     }
 }

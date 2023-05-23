@@ -18,7 +18,7 @@ public class EnemySeen : MonoBehaviour
 
     //Restart movement
     IEnumerator StartMoving(){
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         Active = true;
     }
 }

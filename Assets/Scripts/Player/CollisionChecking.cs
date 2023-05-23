@@ -10,15 +10,16 @@ public class CollisionChecking : MonoBehaviour
 
     void OnTriggerExit(Collider other) {
         //Check if just exited a light
-        global.SendMessage("UpdateGlobal", SendMessageOptions.DontRequireReceiver);
         if(other.transform.tag == "Light"){
             darkness++;
             //Debug.Log(darkness);
+            global.SendMessage("UpdateGlobal", 0, SendMessageOptions.DontRequireReceiver);
             Destroy(other.gameObject);
         }
         if(other.transform.tag=="Light2"){
             darkness++;
             //Debug.Log(darkness);
+            global.SendMessage("UpdateGlobal", 1, SendMessageOptions.DontRequireReceiver);
             Destroy(other.gameObject);
         }
     }

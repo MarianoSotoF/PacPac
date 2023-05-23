@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
-        return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=15;
+        return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=18.0f;
     }
 
     //Set the new target point to go to for the monster
@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
             //Debug.Log("TE VEO");
             timer+=Time.deltaTime;
             pathfinder.SetDestination(Player.position);
-            HasBeenInSight=timer<=5;
+            HasBeenInSight=timer<=7.5f;
         }
         else{
             timer=0;

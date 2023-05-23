@@ -11,7 +11,6 @@ public class Lv1_GlobalScript : MonoBehaviour
     public CollisionChecking Player;
     public GameObject BlueMonster;
     public GameObject[] screamerBoxes;
-    private int stage = 0;
     public GameObject victoryScreen;
     public Text wallAlert;
 
@@ -71,9 +70,9 @@ public class Lv1_GlobalScript : MonoBehaviour
     }
 
     //General Light updater
-    public void UpdateGlobal(){
-        if(stage == 0){UpdateZone1Lights();}
-        if(stage == 1){UpdateZone2Lights();}
+    public void UpdateGlobal(int LightType){
+        if(LightType == 0){UpdateZone1Lights();}
+        if(LightType == 1){UpdateZone2Lights();}
     }
 
     //Control exiting level after completition
@@ -89,7 +88,6 @@ public class Lv1_GlobalScript : MonoBehaviour
             Player_.PlayOneShot(Break_Wall);
             StartCoroutine(AlertDestroyedWall());
             Player.darkness=0;
-            stage = 1;
         }
     }
 
@@ -100,7 +98,6 @@ public class Lv1_GlobalScript : MonoBehaviour
             Destroy(BreakableWalls[1]);
             Player_.PlayOneShot(Break_Wall);
             StartCoroutine(AlertDestroyedWall());
-            stage = 2;
         }
     }
 

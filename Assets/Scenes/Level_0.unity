@@ -7745,6 +7745,14 @@ PrefabInstance:
       propertyPath: textoItem
       value: 
       objectReference: {fileID: 1096388260}
+    - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: lanternDecrTime
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458968055031669227, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
+      propertyPath: lanternNLightsToFill
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5458968055031669229, guid: 6ea6dd619eceb9045a3e7ac923c211d0, type: 3}
       propertyPath: global
       value: 

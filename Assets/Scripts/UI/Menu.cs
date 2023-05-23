@@ -34,7 +34,8 @@ public class Menu : MonoBehaviour
         if(Cursor.visible == false){
             Cursor.visible = !Cursor.visible;
             Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
-            
+            mixer.SetFloat("VOLMASTER", 0);
+
             Time.timeScale = 1f;
         }
     }

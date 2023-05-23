@@ -24,7 +24,7 @@ public class Blue_Monster_Mecanic: MonoBehaviour
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
-        return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=15;
+        return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=18.0f;
     }
 
     //Set the new target point to go to for the monster

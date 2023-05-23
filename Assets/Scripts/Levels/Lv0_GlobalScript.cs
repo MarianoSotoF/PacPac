@@ -28,7 +28,7 @@ public class Lv0_GlobalScript : MonoBehaviour
     }
 
     //General light update
-    public void UpdateGlobal(){
+    public void UpdateGlobal(int type){
         UpdateZoneLights();
     }
 
