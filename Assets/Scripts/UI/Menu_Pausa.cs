@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class Menu_Pausa : MonoBehaviour
 {
+    //GameObject
 
     [SerializeField] private GameObject mPausa;
     [SerializeField] private GameObject mPausa_Options;
+
+    // Variables of Menu_Pause_Options
 
     [Header("Options")]
     public Slider volume;
@@ -20,7 +23,11 @@ public class Menu_Pausa : MonoBehaviour
     public AudioClip ClickSound;
     private float lastvolume;
 
+    //Sounds
+
     public AudioSource sound;
+
+    //Variables
     private bool jPausa = false;
 
     private void Start() {
@@ -36,6 +43,7 @@ public class Menu_Pausa : MonoBehaviour
             
             if (jPausa)
             {
+                //Change volume
                 mixer.SetFloat("VOLMASTER", -80);
                 Resume();
             }
@@ -82,7 +90,7 @@ public class Menu_Pausa : MonoBehaviour
         SceneManager.LoadScene("Main_Menu");
     }
 
-    // MENU_OPTIONS
+    // ---------- MENU_OPTIONS ----------
 
     public void Menu_Pausa_Options(){
 
@@ -94,12 +102,17 @@ public class Menu_Pausa : MonoBehaviour
 
     }
 
+    //Exit to menu_pause
+
     public void Exit_Options(){
 
         PlaySoundButton();
         mPausa_Options.SetActive(false);
         mPausa.SetActive(true);
     }
+
+
+    //Mute control
 
     public void SetMute()
     {
@@ -115,16 +128,21 @@ public class Menu_Pausa : MonoBehaviour
         }
     }
 
+    //Set new main volume
+
     public void ChangeVolumeMaster (float v)
     {
         mixer.SetFloat("VOLMASTER", v);
     }
+
+    //Set FX volume
 
     public void ChangeVolumeFX (float v)
     {
         mixer.SetFloat("VOLFX", v);
     }
 
+    //Set click sound
     public void PlaySoundButton()
     {
         fxsource.PlayOneShot(ClickSound);

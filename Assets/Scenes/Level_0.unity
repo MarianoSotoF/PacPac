@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10688,6 +10688,7 @@ MonoBehaviour:
   - {fileID: 1413122935}
   wallAlert: {fileID: 1096388261}
   player: {fileID: 1204871332}
+  Break_Wall: {fileID: 8300000, guid: f0c3e0edd10ad574d94d8c0908885c91, type: 3}
   level: {fileID: 8300000, guid: ce172e3e3b2d39e4994927c5ff6aaf97, type: 3}
 --- !u!4 &1611249361
 Transform:

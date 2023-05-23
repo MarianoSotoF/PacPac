@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    
+    // Variables of Menu_Pause_Options
 
     [Header("Options")]
     public Slider volume;
@@ -17,6 +19,8 @@ public class Menu : MonoBehaviour
     public AudioClip ClickSound;
     private float lastvolume;
 
+    // GameObjects from the differents panels of de principal menu
+
     [Header("Panels")]
     public GameObject Panel;
     public GameObject Options;
@@ -24,7 +28,9 @@ public class Menu : MonoBehaviour
     public GameObject Credits;
 
     private void Start(){
-        // Cambiar el estado del cursor
+        
+        // Change cursor state
+        
         if(Cursor.visible == false){
             Cursor.visible = !Cursor.visible;
             Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;

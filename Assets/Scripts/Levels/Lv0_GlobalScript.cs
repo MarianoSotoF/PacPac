@@ -16,6 +16,7 @@ public class Lv0_GlobalScript : MonoBehaviour
 
     //Audio params
     public AudioSource player;
+    public AudioClip Break_Wall;
     public AudioClip level;
 
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class Lv0_GlobalScript : MonoBehaviour
         NumLigths--;
         if(NumLigths==0){
             Destroy(BreakableWalls[0]);
+            player.PlayOneShot(Break_Wall);
             StartCoroutine(AlertDestroyedWall());
             Player.darkness=0;
         }

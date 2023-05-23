@@ -23,6 +23,8 @@ public class Lv1_GlobalScript : MonoBehaviour
 
     //Audio
     public AudioSource Monster_;
+    public AudioSource Player_;
+    public AudioClip Break_Wall;
     public AudioClip horror;
     public AudioClip AmbientMusic;
     private bool horror_playing = false;
@@ -31,7 +33,14 @@ public class Lv1_GlobalScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Zone1Lights=GameObject.FindGameObjectsWithTag("Light");
+        if (Cursor.visible == false)
+        {
+            Cursor.visible = !Cursor.visible;
+            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+
+            Time.timeScale = 1f;
+        }
+        Zone1Lights =GameObject.FindGameObjectsWithTag("Light");
         Zone2Lights=GameObject.FindGameObjectsWithTag("Light2");
         NumLigths=Zone1Lights.Length;
         NumLigths2=Zone2Lights.Length;
@@ -77,6 +86,7 @@ public class Lv1_GlobalScript : MonoBehaviour
         NumLigths--;
         if(NumLigths==0){
             Destroy(BreakableWalls[0]);
+            Player_.PlayOneShot(Break_Wall);
             StartCoroutine(AlertDestroyedWall());
             Player.darkness=0;
             stage = 1;
@@ -88,6 +98,7 @@ public class Lv1_GlobalScript : MonoBehaviour
         NumLigths2--;
         if(NumLigths2==0){
             Destroy(BreakableWalls[1]);
+            Player_.PlayOneShot(Break_Wall);
             StartCoroutine(AlertDestroyedWall());
             stage = 2;
         }
