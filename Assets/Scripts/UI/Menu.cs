@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    
+
     // Variables of Menu_Pause_Options
 
     [Header("Options")]
@@ -28,9 +28,9 @@ public class Menu : MonoBehaviour
     public GameObject Credits;
 
     private void Start(){
-        
+
         // Change cursor state
-        
+
         if(Cursor.visible == false){
             Cursor.visible = !Cursor.visible;
             Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
@@ -66,7 +66,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    //Show menu 
+    //Show menu
     public void OpenPanel(GameObject panel) {
         Panel.SetActive(false);
         Options.SetActive(false);
@@ -75,7 +75,11 @@ public class Menu : MonoBehaviour
         panel.SetActive(true);
 
         PlaySoundButton();
-    
+
+    }
+
+    public void ExitGame() {
+        Application.Quit();
     }
 
     //Set new main volume
