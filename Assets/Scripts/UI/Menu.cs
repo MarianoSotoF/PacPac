@@ -78,7 +78,11 @@ public class Menu : MonoBehaviour
 
     }
 
+    //Quit game
     public void ExitGame() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
         Application.Quit();
     }
 

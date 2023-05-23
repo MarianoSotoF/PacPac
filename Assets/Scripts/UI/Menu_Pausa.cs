@@ -39,7 +39,7 @@ public class Menu_Pausa : MonoBehaviour
     private void Update()
     {
         //Detect when menu is selected
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Pausa");
             
