@@ -43,14 +43,7 @@ public class Menu_Pausa : MonoBehaviour
         {
             Debug.Log("Pausa");
             
-            if (jPausa)
-            {
-                //Change volume
-                mixer.SetFloat("VOLMASTER", -80);
-                player.SendMessage("LockCamera", false, SendMessageOptions.DontRequireReceiver);
-                Resume();
-            }
-            else
+            if (!jPausa)
             {
                 player.SendMessage("LockCamera", true, SendMessageOptions.DontRequireReceiver);
                 Pausa();
@@ -72,6 +65,7 @@ public class Menu_Pausa : MonoBehaviour
     //Resume game
     public void Resume()
     {
+        mixer.SetFloat("VOLMASTER", -80);
         sound.Play();
         mPausa.SetActive(false);
         Time.timeScale = 1f;

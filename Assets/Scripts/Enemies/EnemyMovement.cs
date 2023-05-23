@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
 {
     protected Transform Player;
     public UnityEngine.AI.NavMeshAgent pathfinder;
-    protected float timer=0;
     protected int destPoint=0;
     protected bool HasBeenInSight=false;
     public Transform[] PathPoints;
@@ -23,7 +22,36 @@ public class EnemyMovement : MonoBehaviour
 
     //Indicates if the player is or isn't visible
     protected bool EsVisible(){
-        return HasBeenInSight=Vector3.Distance(Player.position,this.transform.position)<=18.0f;
+        float interactionRayLength = 30.0f;
+        bool playerInFront = false;
+        bool playerNear = false;
+
+        playerNear = Vector3.Distance(Player.position,this.transform.position) <= interactionRayLength;
+
+        if(playerNear){
+            //Use raycasting from enemy to player to check if there no wall between them, but just if they're close enough
+            Vector3 rayDirection = Player.position - transform.position;
+            Ray interactionRay = new Ray(transform.position, rayDirection);
+            RaycastHit interactionRayHit;
+            Vector3 interactionRayEndpoint = rayDirection * interactionRayLength + transform.position;
+            Debug.DrawLine(transform.position, interactionRayEndpoint);
+            
+            //Collision check
+            bool hitFound = Physics.Raycast(interactionRay, out interactionRayHit, interactionRayLength);
+
+            if(hitFound){
+                GameObject hitGameObject = interactionRayHit.transform.gameObject;
+
+                // Interaction with Pink_monster
+                if(hitGameObject.CompareTag("Player")){
+                    playerInFront = true;
+                }
+                else{playerInFront = false;}
+            }
+        }
+        
+        HasBeenInSight = playerNear && playerInFront;
+        return HasBeenInSight ;
     }
 
     //Set the new target point to go to for the monster
@@ -55,17 +83,15 @@ public class EnemyMovement : MonoBehaviour
     //Control wandering process on the monster
     protected void Wandering(){
         if(HasBeenInSight){
-            //Debug.Log("TE VEO");
-            timer+=Time.deltaTime;
+            Debug.Log("TE VEO");
             pathfinder.SetDestination(Player.position);
-            HasBeenInSight=timer<=7.5f;
         }
         else{
-            timer=0;
             if(EsVisible()){
                 Monster_.PlayOneShot(monster_cry);
                 if(!changeMusicStatus){global.SendMessage("PlayMusic", true, SendMessageOptions.DontRequireReceiver); changeMusicStatus = true;}
                 pathfinder.SetDestination(Player.position);
+                StartCoroutine(StopAttack());
             }
             else{
                 //Debug.Log("HACIA UN PUNTO");
@@ -76,5 +102,10 @@ public class EnemyMovement : MonoBehaviour
                 }
             } 
         }
+    }
+
+    protected IEnumerator StopAttack(){
+        yield return new WaitForSeconds(8.0f);
+        HasBeenInSight = false;
     }
 }
