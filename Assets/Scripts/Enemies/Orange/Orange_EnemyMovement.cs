@@ -7,6 +7,8 @@ public class Orange_EnemyMovement : MonoBehaviour {
     public AudioSource orange_monster;
     public AudioClip orange;
     public GameObject global;
+    public float playerSeenSpeed = 5f;
+    public float playerNotSeenSpeed = 2f;
     private bool playMusic;
 
     private Vector3 origin;
@@ -49,9 +51,9 @@ public class Orange_EnemyMovement : MonoBehaviour {
 
             pathfinder.SetDestination(player.position);
             if(DetectPlayerInSight()) {
-                pathfinder.speed = 3.8f;
+                pathfinder.speed = playerSeenSpeed;
             } else {
-                pathfinder.speed = 1.5f;
+                pathfinder.speed = playerNotSeenSpeed;
             }
 
         } else if(timeOutsideTrigger > 0.0f) { // wait for a bit once player is out of area

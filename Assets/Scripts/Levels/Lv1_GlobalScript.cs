@@ -104,6 +104,6 @@ public class Lv1_GlobalScript : MonoBehaviour
         if(tag == "Pink_monster"){screamerBoxes[0].SetActive(true);}
         if(tag == "Red_monster"){screamerBoxes[1].SetActive(true);}
         if(tag == "Blue_monster"){screamerBoxes[2].SetActive(true);}
-        if(tag == "Orange_monster"){screamerBoxes[3].SetActive(true);}
+        if(tag == "Orange_Monster"){screamerBoxes[3].SetActive(true);}
     }
 }

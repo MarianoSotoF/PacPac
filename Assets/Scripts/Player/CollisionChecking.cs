@@ -32,7 +32,7 @@ public class CollisionChecking : MonoBehaviour
         if(other.transform.tag == "Pink_monster" ||
            other.transform.tag == "Red_monster" ||
            other.transform.tag == "Blue_monster" ||
-           other.transform.tag == "Orange_monster"){
+           other.transform.tag == "Orange_Monster"){
             //Debug.Log("Te moristeh");
 
             //Desabilitate player
