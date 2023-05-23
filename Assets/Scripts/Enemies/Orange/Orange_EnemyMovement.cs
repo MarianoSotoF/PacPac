@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Orange_EnemyMovement : MonoBehaviour {
+    public AudioSource orange_monster;
+    public AudioClip orange;
+    public GameObject global;
+    private bool playMusic;
+
     private Vector3 origin;
     private Transform player;
     private NavMeshAgent pathfinder;
@@ -14,12 +19,12 @@ public class Orange_EnemyMovement : MonoBehaviour {
     private bool playerInRange;
     public bool PlayerInRange {
         get { return playerInRange; }
-        set { 
+        set {
             if(!value) {
                 timeOutsideTrigger = timeInsideTrigger;
                 pathfinder.ResetPath();
             }
-            playerInRange = value; 
+            playerInRange = value;
         }
     }
 
@@ -30,22 +35,35 @@ public class Orange_EnemyMovement : MonoBehaviour {
         playerInRange = false;
         timeOutsideTrigger = 0.0f;
         timeInsideTrigger = 3.0f;
+        playMusic = false;
     }
 
     void FixedUpdate()
     {
         if(playerInRange) { // move towards played if inside area
+            if(!playMusic) {
+                global.SendMessage("PlayMusic", true, SendMessageOptions.DontRequireReceiver);
+                orange_monster.PlayOneShot(orange);
+                playMusic = true;
+            }
+
             pathfinder.SetDestination(player.position);
             if(DetectPlayerInSight()) {
                 pathfinder.speed = 3.8f;
             } else {
                 pathfinder.speed = 1.5f;
             }
+
         } else if(timeOutsideTrigger > 0.0f) { // wait for a bit once player is out of area
             timeOutsideTrigger -= Time.deltaTime;
+
         } else { // go back if player is outside area for long enough
             pathfinder.SetDestination(origin);
             pathfinder.speed = 4f;
+            if(playMusic) {
+                global.SendMessage("PlayMusic", false, SendMessageOptions.DontRequireReceiver);
+                playMusic = false;
+            }
         }
     }
 

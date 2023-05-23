@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Lv1_GlobalScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Lv1_GlobalScript : MonoBehaviour
     public GameObject BlueMonster;
     public GameObject[] screamerBoxes;
     private int stage = 0;
+    public GameObject victoryScreen;
+    public Text wallAlert;
 
     //Light mecanics
     public GameObject[] BreakableWalls;
@@ -18,14 +21,13 @@ public class Lv1_GlobalScript : MonoBehaviour
     private GameObject[] Zone2Lights;
     public int NumLigths,NumLigths2;
 
-
     //Audio
     public AudioSource Monster_;
     public AudioClip horror;
-    public AudioClip AmbientMusic; 
+    public AudioClip AmbientMusic;
     private bool horror_playing = false;
     private int horror_count = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,12 @@ public class Lv1_GlobalScript : MonoBehaviour
         Monster_.Stop();
     }
 
+    private IEnumerator AlertDestroyedWall() {
+        wallAlert.text = "A new path is unblocked...";
+        yield return new WaitForSeconds(2f);
+        wallAlert.text = "";
+    }
+
     //Check if action music should or should not be playing
     private void UpdateMusic(){
         if(!horror_playing && horror_count > 0){ Monster_.Stop(); Monster_.PlayOneShot(horror); horror_playing = true;}
@@ -61,7 +69,7 @@ public class Lv1_GlobalScript : MonoBehaviour
 
     //Control exiting level after completition
     public void ExitLevel(){
-
+        victoryScreen.SetActive(true);
     }
 
     //Update light counter on zone 1
@@ -69,6 +77,7 @@ public class Lv1_GlobalScript : MonoBehaviour
         NumLigths--;
         if(NumLigths==0){
             Destroy(BreakableWalls[0]);
+            StartCoroutine(AlertDestroyedWall());
             Player.darkness=0;
             stage = 1;
         }
@@ -79,10 +88,11 @@ public class Lv1_GlobalScript : MonoBehaviour
         NumLigths2--;
         if(NumLigths2==0){
             Destroy(BreakableWalls[1]);
+            StartCoroutine(AlertDestroyedWall());
             stage = 2;
         }
     }
-    
+
     //Activate Blue monster
     public void SummonBlueMonster(){
         BlueMonster.SetActive(true);

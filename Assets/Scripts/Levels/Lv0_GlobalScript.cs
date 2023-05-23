@@ -15,7 +15,7 @@ public class Lv0_GlobalScript : MonoBehaviour
     //Audio params
     public AudioSource player;
     public AudioClip level;
-    
+
     // Start is called before the first frame update
     void Start()
     {

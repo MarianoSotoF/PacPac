@@ -25,13 +25,13 @@ public class CollisionChecking : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         //Check if cross the goal
-        if(other.transform.tag == "Exit"){
+        if(other.transform.tag == "Exit") {
             global.SendMessage("ExitLevel", SendMessageOptions.DontRequireReceiver);
         }
         //Check if had collide with an enemy
-        if(other.transform.tag == "Pink_monster" || 
+        if(other.transform.tag == "Pink_monster" ||
            other.transform.tag == "Red_monster" ||
-           other.transform.tag == "Blue_monster" || 
+           other.transform.tag == "Blue_monster" ||
            other.transform.tag == "Orange_monster"){
             //Debug.Log("Te moristeh");
 

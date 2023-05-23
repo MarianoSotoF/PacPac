@@ -7,7 +7,7 @@ public class ItemList : MonoBehaviour
 {
     //Common params
     public GameObject linterna;
-    public Text textoItem; 
+    public Text textoItem;
     public int Keys=0;
 
     //Audio params
@@ -66,9 +66,9 @@ public class ItemList : MonoBehaviour
                 textoItem.text="You don't have any key";
                 player.PlayOneShot(error);
             }
-            
         }
     }
+
     void OnTriggerExit(Collider other) {
         textoItem.text="";
 
